@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import {
@@ -16,6 +16,7 @@ import {
 } from "@/content/events";
 import { getPartner } from "@/content/partners";
 import { absoluteUrl, site } from "@/content/site";
+import { breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -87,9 +88,12 @@ function eventJsonLd(event: EventDate, data: NonNullable<ReturnType<typeof load>
     endDate: end,
     eventStatus: "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    url: absoluteUrl(`/events/${event.slug}`),
     location: {
       "@type": "Place",
+      "@id": absoluteUrl("/#venue"),
       name: site.name,
+      geo: { "@type": "GeoCoordinates", ...site.geo },
       address: {
         "@type": "PostalAddress",
         streetAddress: site.address.street,
@@ -117,7 +121,7 @@ export default async function EventDetailPage({ params }: Props) {
   const data = load((await params).slug);
   if (!data) notFound();
   const { event, series, partner } = data;
-  if (isPast(event)) redirect("/events");
+  if (isPast(event)) permanentRedirect("/events");
 
   const others = otherDatesInSeries(event);
   const isTicket = isTicketEvent(event);
@@ -145,7 +149,14 @@ export default async function EventDetailPage({ params }: Props) {
 
   return (
     <div className="flex min-h-screen flex-col pb-20 md:pb-0">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd(event, data)) }} />
+      <JsonLd data={eventJsonLd(event, data)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Start", path: "/" },
+          { name: "Events", path: "/events" },
+          { name: series.title, path: `/events/${event.slug}` },
+        ])}
+      />
       <Navbar />
 
       <header className="relative h-[60vh] min-h-[420px] overflow-hidden md:h-[55vh]">

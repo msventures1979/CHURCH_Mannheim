@@ -1,16 +1,24 @@
 # CHURCH.
 
-> Denkmalgeschützte Kapelle von 1893 im Turley-Quartier Mannheim — exklusiver Coworking-Space und buchbare Eventfläche.
+> Eventlocation und kuratierter Coworking-Space in einer denkmalgeschützten Kapelle von 1893 im Turley-Quartier Mannheim (Turleystraße 36, 68167 Mannheim).
 
-CHURCH. liegt in Mannheim und vereint historische Sakralarchitektur mit zeitgenössischer Nutzung: "The Office" (Coworking) und "The Hall" (Eventfläche für Yoga, Dinners, Kultur, Private Events).
+CHURCH. verbindet historische Sakralarchitektur mit heutiger Nutzung:
 
-## Pages
+- **The Hall (Erdgeschoss):** ursprünglicher Kirchenraum mit rund 150 m², originalen Buntglasfenstern, Designküche, Bar und Lounge-Zone. Buchbar als Eventlocation für Firmenevents, Workshops, Dinner, Pop-up Stores und Kulturabende, tagsüber und abends. 16 Stellplätze.
+- **The Office (1. OG):** 15 Arbeitsplätze auf rund 170 m² unter dem offenen historischen Dachstuhl, Highspeed-WLAN, Küche. Kein offener Coworking-Space – neue Mitglieder werden von der Gemeinschaft eingeladen.
+- **Programm:** regelmäßig WineYoga, Pop-up Stores und weitere Formate mit Partner:innen.
 
-- [Startseite](/): Überblick über CHURCH., die Räume und das Konzept.
-- [Events](/events): Aktuelle und kommende Veranstaltungen in der CHURCH.
-- [Kontakt](/#kontakt): Anfrage für Coworking, Eventfläche oder Kooperation.
+Geschichte: erbaut 1893 als Teil der Kaiser-Wilhelm-Kaserne, zuletzt „St. Anthony of Padua Chapel“ der US Army.
+
+Kontakt: info@church-mannheim.com · +49 621 180 657 466 · Anfrageformular auf der Startseite.
+
+## Seiten
+
+- [Startseite](https://www.church-mannheim.com/): Räume, Konzept, Galerie, FAQ, Kontakt
+- [Events](https://www.church-mannheim.com/events): aktuelle und kommende Veranstaltungen
+- [Kontakt](https://www.church-mannheim.com/#kontakt): Anfrage für Eventfläche, Coworking, Pop-up oder Kooperation
 
 ## Optional
 
-- [Impressum](/impressum)
-- [Datenschutz](/datenschutz)
+- [Impressum](https://www.church-mannheim.com/impressum)
+- [Datenschutz](https://www.church-mannheim.com/datenschutz)

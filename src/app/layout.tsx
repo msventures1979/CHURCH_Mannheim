@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Consent from "@/components/Consent";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { absoluteUrl, site } from "@/content/site";
+import { JsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const noindex = process.env.NEXT_PUBLIC_NOINDEX === "1";
@@ -9,6 +10,9 @@ const noindex = process.env.NEXT_PUBLIC_NOINDEX === "1";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: site.title, template: "%s" },
+  applicationName: site.name,
+  authors: [{ name: site.company.name }],
+  formatDetection: { telephone: true, email: true, address: true },
   description: site.description,
   alternates: { canonical: "/" },
   robots: noindex ? { index: false, follow: false } : { index: true, follow: true },
@@ -36,28 +40,62 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = { themeColor: "#0A0A0A" };
 
-const localBusiness = {
+// Strukturierte Daten für Google: Organisation, Website und Veranstaltungsort
+const graph = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  additionalType: ["https://schema.org/CoworkingSpace", "https://schema.org/EventVenue"],
-  name: site.name,
-  description: "Denkmalgeschützte Kapelle von 1893 – Coworking-Space und Eventfläche im Turley-Quartier Mannheim.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: site.address.street,
-    addressLocality: site.address.city,
-    postalCode: site.address.zip,
-    addressCountry: "DE",
-  },
-  telephone: site.phoneHref.replace("tel:", ""),
-  email: site.email,
-  url: site.url,
-  image: absoluteUrl(site.ogImage),
-  priceRange: "€€",
-  openingHours: "Mo-Fr 09:00-18:00",
-  geo: { "@type": "GeoCoordinates", ...site.geo },
-  hasMap: site.mapsLink,
-  sameAs: [site.instagram, site.linkedin],
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": absoluteUrl("/#organization"),
+      name: site.name,
+      url: site.url,
+      logo: absoluteUrl(site.logo),
+      email: site.email,
+      telephone: site.phoneHref.replace("tel:", ""),
+      sameAs: [site.instagram, site.linkedin],
+    },
+    {
+      "@type": "WebSite",
+      "@id": absoluteUrl("/#website"),
+      url: site.url,
+      name: site.name,
+      inLanguage: "de-DE",
+      publisher: { "@id": absoluteUrl("/#organization") },
+    },
+    {
+      "@type": ["EventVenue", "LocalBusiness"],
+      "@id": absoluteUrl("/#venue"),
+      name: site.name,
+      description:
+        "Denkmalgeschützte Kapelle von 1893 im Turley-Quartier Mannheim – Eventlocation mit 150 m² Kirchenraum und kuratierter Coworking-Space.",
+      url: site.url,
+      image: [absoluteUrl(site.ogImage)],
+      logo: absoluteUrl(site.logo),
+      telephone: site.phoneHref.replace("tel:", ""),
+      email: site.email,
+      priceRange: "€€",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: site.address.street,
+        postalCode: site.address.zip,
+        addressLocality: site.address.city,
+        addressRegion: "Baden-Württemberg",
+        addressCountry: "DE",
+      },
+      geo: { "@type": "GeoCoordinates", ...site.geo },
+      hasMap: site.mapsLink,
+      openingHours: "Mo-Fr 09:00-18:00",
+      amenityFeature: [
+        "Designküche",
+        "Bar und Lounge-Zone",
+        "Highspeed-WLAN",
+        "16 Stellplätze",
+        "Originale Buntglasfenster",
+      ].map((name) => ({ "@type": "LocationFeatureSpecification", name, value: true })),
+      parentOrganization: { "@id": absoluteUrl("/#organization") },
+      sameAs: [site.instagram, site.linkedin],
+    },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -67,7 +105,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
       <body>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} />
+        <JsonLd data={graph} />
         {children}
         <WhatsAppButton />
         <Consent gaId={site.gaId} />

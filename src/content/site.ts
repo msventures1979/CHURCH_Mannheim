@@ -3,10 +3,11 @@
 export const site = {
   name: "CHURCH.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.church-mannheim.com",
-  title: "CHURCH. — Coworking & Eventfläche in Mannheim",
+  title: "CHURCH. | Eventlocation & Coworking in Mannheim",
   description:
-    "CHURCH. ist eine denkmalgeschützte Kapelle von 1893 im Turley-Quartier Mannheim. Kuratierter Coworking-Space im OG, Eventfläche mit 150 m² Kirchenraum im EG.",
+    "Eventlocation in einer Kapelle von 1893 im Turley-Quartier Mannheim: 150 m² Kirchenraum für Events, Workshops & Pop-ups – plus kuratierter Coworking-Space.",
   ogImage: "/images/og-image.jpg",
+  logo: "/icon-512.png",
 
   email: "info@church-mannheim.com",
   phone: "+49 621 180 657 466",

@@ -1,6 +1,7 @@
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Coworking from "@/components/Coworking";
+import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
 import Gallery from "@/components/Gallery";
 import Hall from "@/components/Hall";
@@ -22,6 +23,7 @@ export default function Home() {
         <Hall />
         <Program />
         <Gallery />
+        <Faq />
         <Contact />
       </main>
       <Footer />

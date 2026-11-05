@@ -15,14 +15,14 @@ import { gallery } from "@/content/home";
 import FadeIn from "./FadeIn";
 
 const images: { src: StaticImageData; alt: string; portrait?: boolean }[] = [
-  { src: imgExterior, alt: "Außenansicht Kapelle – Backsteinfassade" },
+  { src: imgExterior, alt: "Außenansicht der Kapelle CHURCH. in Mannheim – Backsteinfassade" },
   { src: imgGlassCloseup, alt: "Buntglasfenster – Detail" },
   { src: imgGlass, alt: "Kirchenraum mit Buntglasfenster", portrait: true },
-  { src: imgHall, alt: "Kirchenraum EG – Eingang" },
-  { src: imgKitchen, alt: "Designküche im Erdgeschoss" },
+  { src: imgHall, alt: "Eventlocation CHURCH. Mannheim – Kirchenraum mit Eingang" },
+  { src: imgKitchen, alt: "Designküche der Eventlocation im Erdgeschoss" },
   { src: imgLightBench, alt: "Lichtspiel auf Kirchenbank" },
   { src: imgGlassDetail, alt: "Buntglas – Nahaufnahme", portrait: true },
-  { src: imgExteriorSide, alt: "Außenansicht – Seitenansicht", portrait: true },
+  { src: imgExteriorSide, alt: "Kapelle im Turley-Quartier Mannheim – Seitenansicht", portrait: true },
   { src: imgWindowView, alt: "Blick durch Kirchenfenster", portrait: true },
 ];
 

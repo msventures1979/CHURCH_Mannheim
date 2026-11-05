@@ -3,7 +3,9 @@ import ButtonLink from "@/components/ButtonLink";
 import EventCard from "@/components/EventCard";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import { upcomingEvents } from "@/content/events";
+import { formatDateRange, getEventSeries, upcomingEvents } from "@/content/events";
+import { absoluteUrl } from "@/content/site";
+import { breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 
 export const revalidate = 3600;
 
@@ -24,6 +26,20 @@ export default function EventsPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <JsonLd data={breadcrumbJsonLd([{ name: "Start", path: "/" }, { name: "Events", path: "/events" }])} />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Events in der CHURCH. Mannheim",
+          itemListElement: upcoming.map((e, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            url: absoluteUrl(`/events/${e.slug}`),
+            name: `${getEventSeries(e)?.title ?? ""} – ${formatDateRange(e, true)}`,
+          })),
+        }}
+      />
       <Navbar />
       <header className="border-b border-border px-6 pb-16 pt-32 md:px-12 md:pb-20 md:pt-40 lg:px-24">
         <div className="mx-auto max-w-7xl">
