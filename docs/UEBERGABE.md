@@ -21,6 +21,14 @@ Schriften lokal, Google Analytics (G-J0RPGFDRDN) nur nach Zustimmung im Cookie-H
 
 Inhalte ändern ohne Code-Kenntnisse: `src/content/` (siehe README). Vergangene Events verschwinden automatisch.
 
+## Events pflegen
+
+Termine in `src/content/events.ts`, Reihen (Texte, Bilder) in `src/content/eventSeries.ts`. Neue Termine per Chat an Claude oder direkt auf GitHub bearbeiten; Vercel deployt automatisch. Ein Admin-Bereich (`/admin`, Daten in Supabase) ist bewusst zurückgestellt (05.11.2026).
+
+## SEO (05.11.2026)
+
+Titel/Beschreibung auf „Eventlocation Mannheim“ und „Coworking Mannheim“, FAQ-Bereich (nicht im Menü), Schema.org (Organization, WebSite, EventVenue, Event, FAQPage, Breadcrumbs), Lighthouse SEO 100. Offen: Google Unternehmensprofil, Search Console (Sitemap einreichen), Bing Webmaster Tools, Backlinks von Partnern, ggf. Landingpage „Eventlocation mieten“ (braucht Kapazität, Bestuhlung, Preise, Catering).
+
 ## Kontaktformular
 
 Server Action → Tabelle `inquiries` (Supabase, RLS an, nur service_role) + Benachrichtigung an `NOTIFY_TO` über Resend.
