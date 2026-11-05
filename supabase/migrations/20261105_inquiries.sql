@@ -20,3 +20,7 @@ create index if not exists inquiries_ip_hash_idx on public.inquiries (ip_hash, c
 
 -- Row Level Security an, ohne Policies: nur der Server (Service-Role-Key) hat Zugriff.
 alter table public.inquiries enable row level security;
+
+-- Neue Tabellen werden nicht automatisch freigegeben: nur service_role bekommt Rechte.
+revoke all on public.inquiries from anon, authenticated;
+grant select, insert, update, delete on public.inquiries to service_role;
