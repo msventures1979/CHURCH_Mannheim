@@ -1,0 +1,83 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/space-grotesk";
+
+@theme {
+  --font-display: "Space Grotesk Variable", system-ui, sans-serif;
+  --font-body: "Inter Variable", system-ui, sans-serif;
+
+  --color-background: hsl(40 7% 6%);
+  --color-foreground: hsl(40 20% 98%);
+  --color-card: hsl(40 5% 10%);
+  --color-primary: hsl(34 24% 71%);
+  --color-primary-foreground: hsl(40 7% 6%);
+  --color-muted: hsl(30 5% 16%);
+  --color-muted-foreground: hsl(30 8% 60%);
+  --color-border: hsl(30 5% 20%);
+  --color-destructive: hsl(0 84% 60%);
+  --color-sand: hsl(34 24% 71%);
+
+  --radius: 0px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+  ::selection {
+    background: hsl(34 24% 71% / 0.3);
+  }
+  button {
+    cursor: pointer;
+  }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility section-padding {
+  padding: 4rem 1.5rem;
+  @media (width >= 48rem) {
+    padding: 5rem 3rem;
+  }
+  @media (width >= 64rem) {
+    padding: 6rem 6rem;
+  }
+}
+
+@utility scrollbar-hide {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Nur ausblenden, wenn JavaScript läuft – sonst bleibt alles sichtbar */
+.js .fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.js .fade-in-section.visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .fade-in-section { opacity: 1; transform: none; transition: none; }
+}

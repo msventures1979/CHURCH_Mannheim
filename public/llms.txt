@@ -1,0 +1,16 @@
+# CHURCH.
+
+> Denkmalgeschützte Kapelle von 1893 im Turley-Quartier Mannheim — exklusiver Coworking-Space und buchbare Eventfläche.
+
+CHURCH. liegt in Mannheim und vereint historische Sakralarchitektur mit zeitgenössischer Nutzung: "The Office" (Coworking) und "The Hall" (Eventfläche für Yoga, Dinners, Kultur, Private Events).
+
+## Pages
+
+- [Startseite](/): Überblick über CHURCH., die Räume und das Konzept.
+- [Events](/events): Aktuelle und kommende Veranstaltungen in der CHURCH.
+- [Kontakt](/#kontakt): Anfrage für Coworking, Eventfläche oder Kooperation.
+
+## Optional
+
+- [Impressum](/impressum)
+- [Datenschutz](/datenschutz)
