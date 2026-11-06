@@ -38,6 +38,13 @@ export default function DatenschutzPage() {
           zuverlässigen Betrieb). Mit Vercel besteht ein Vertrag zur Auftragsverarbeitung. Vercel ist unter dem
           EU-US Data Privacy Framework zertifiziert; ergänzend gelten die Standardvertragsklauseln der EU-Kommission.
         </p>
+        <p className="mt-3">
+          Zur statistischen Auswertung nutzen wir außerdem Vercel Web Analytics. Dabei werden keine Cookies gesetzt und
+          keine Daten im Browser gespeichert. Erfasst werden aufgerufene Seiten, Referrer, Land, Browser, Betriebssystem
+          und Gerätetyp. Besucher werden nur über einen Hash aus Anfrage-Merkmalen unterschieden, der nach 24 Stunden
+          verfällt und keine Rückschlüsse auf Ihre Person erlaubt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO
+          (berechtigtes Interesse an einer datensparsamen Reichweitenmessung).
+        </p>
       </section>
 
       <section>

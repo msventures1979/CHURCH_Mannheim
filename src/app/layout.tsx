@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import Consent from "@/components/Consent";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { absoluteUrl, site } from "@/content/site";
@@ -108,6 +109,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <WhatsAppButton />
         <Consent gaId={site.gaId} />
+        <Analytics />
       </body>
     </html>
   );
