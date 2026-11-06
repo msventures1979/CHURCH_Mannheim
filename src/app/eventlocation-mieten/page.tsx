@@ -156,7 +156,7 @@ export default function RentalPage() {
           <div className="grid grid-cols-2 md:grid-cols-4">
             {[
               { src: glassImg, alt: "Buntglasfenster im Kirchenraum" },
-              { src: kitchenImg, alt: "Offene Küche im Saal" },
+              { src: kitchenImg, alt: "Designküche im Saal" },
               { src: benchImg, alt: "Lichtspiel auf der Kirchenbank" },
               { src: exteriorImg, alt: "Außenansicht der Kapelle" },
             ].map((img) => (

@@ -4,13 +4,13 @@ export const rental = {
   meta: {
     title: "Eventlocation Mannheim mieten – Kapelle von 1893 | CHURCH.",
     description:
-      "Eventlocation in Mannheim mieten: 150 m² Kirchenraum mit Buntglasfenstern, offener Küche im Turley-Quartier. Für Firmenevents, Dinner, Workshops & Feiern – ab 1.000 € pro Abend.",
+      "Eventlocation in Mannheim mieten: 150 m² Kirchenraum mit Buntglasfenstern, offener Designküche im Turley-Quartier. Für Firmenevents, Dinner, Workshops & Feiern – ab 1.000 € pro Abend.",
   },
 
   hero: {
     eyebrow: "Eventlocation mieten",
     title: "Eine Kapelle von 1893. Für euren Abend.",
-    text: "150 m² Kirchenraum mit originalen Buntglasfenstern und offener Küche – mitten im Turley-Quartier in Mannheim. Ein Ort, den eure Gäste nicht vergessen.",
+    text: "150 m² Kirchenraum mit originalen Buntglasfenstern und voll ausgestatteter Designküche – mitten im Turley-Quartier in Mannheim. Ein Ort, den eure Gäste nicht vergessen.",
     cta: "Termin anfragen",
     imageAlt: "Kirchenraum der Eventlocation CHURCH. in Mannheim",
   },
@@ -28,7 +28,7 @@ export const rental = {
     items: [
       { title: "Firmenevents & Teamabende", text: "Kick-offs, Sommerfeste, Kundenabende – in einem Raum, über den man noch lange spricht." },
       { title: "Workshops & Seminare", text: "Tagsüber konzentriert arbeiten, unter hohen Decken und mit viel Tageslicht." },
-      { title: "Dinner & lange Tafeln", text: "Mit unseren Catering-Partnern und der offenen Küche direkt im Raum." },
+      { title: "Dinner & lange Tafeln", text: "Mit unseren Catering-Partnern und der ausgestatteten Designküche direkt im Raum." },
       { title: "Pop-up Stores & Ausstellungen", text: "Eine Bühne für Marken, Mode, Design und Kunst – für einen Tag oder mehrere Wochen." },
       { title: "Private Feiern", text: "Geburtstage, Jubiläen, Hochzeitsfeiern – im kleinen Kreis oder mit vielen Gästen." },
       { title: "Kultur & Konzerte", text: "Lesungen, Konzerte und Kulturabende mit der besonderen Akustik eines Kirchenraums." },
@@ -38,7 +38,7 @@ export const rental = {
   space: {
     eyebrow: "Raum & Kapazität",
     headline: "Ein Raum. Viele Möglichkeiten.",
-    text: "Der Saal im Erdgeschoss misst rund 10 × 15 Meter. Vorne am Eingang liegt die offene Küche. Bestuhlung und Tische stellen wir nach euren Wünschen – von der langen Tafel bis zur Stuhlreihe.",
+    text: "Der Saal im Erdgeschoss misst rund 10 × 15 Meter. Vorne am Eingang liegt die offene Designküche – voll ausgestattet mit Geschirrspüler, Kühlschränke, Weinkühlschränke, Gas-Kochfeld, Kaffeemaschine und Popcornmaschine. Bestuhlung und Tische stellen wir nach euren Wünschen – von der langen Tafel bis zur Stuhlreihe.",
     capacityNote: "Richtwerte. Die genaue Zahl hängt von Aufbau, Bühne und Catering ab – wir planen das gemeinsam mit euch.",
     capacities: [
       { setup: "Stehempfang", guests: "bis ca. 150" },
@@ -55,7 +55,9 @@ export const rental = {
       "Denkmalgeschützte Kapelle von 1893",
       "Originale Buntglasfenster",
       "Hohe Decken, viel Tageslicht",
-      "Offene Küche im Raum",
+      "Offene Designküche, voll ausgestattet",
+      "Geschirrspüler, Kühl- und Weinkühlschränke",
+      "Gas-Kochfeld, Kaffee- und Popcornmaschine",
       "Bestuhlung und Tische nach Wunsch",
       "Eigene WCs und Foyer",
       "16 Stellplätze direkt an der Kapelle",
@@ -70,7 +72,7 @@ export const rental = {
     text: "Der Preis richtet sich nach Dauer, Ausstattung und Aufbau. Nach eurer Anfrage bekommt ihr ein individuelles Angebot – transparent und ohne versteckte Posten.",
     included: [
       "Exklusive Nutzung des Kirchenraums",
-      "Offene Küche",
+      "Ausgestattete Designküche",
       "Foyer, WCs und 16 Stellplätze",
       "Persönliche Planung mit uns",
     ],

@@ -36,11 +36,11 @@ export const hall = {
   eyebrow: "The Hall — EG",
   headline: "Ein Kirchenraum. Dein nächstes Event.",
   paragraphs: [
-    "Das Erdgeschoss der CHURCH. ist der ursprüngliche Kirchenraum – ein Saal mit rund 150 m², hohen Decken und originalen Buntglasfenstern. Mit offener Küche direkt im Raum. Eine Eventlocation in Mannheim, die man so kein zweites Mal findet: für Firmenevents, Workshops, Dinner, Pop-up Stores und Kulturabende.",
+    "Das Erdgeschoss der CHURCH. ist der ursprüngliche Kirchenraum – ein Saal mit rund 150 m², hohen Decken und originalen Buntglasfenstern. Mit offener, voll ausgestatteter Designküche direkt im Raum – Geschirrspüler, Kühlschränke, Weinkühlschränke, Gas-Kochfeld, Kaffeemaschine und Popcornmaschine. Eine Eventlocation in Mannheim, die man so kein zweites Mal findet: für Firmenevents, Workshops, Dinner, Pop-up Stores und Kulturabende.",
     "Wir bauen ein regelmäßiges Programm auf – von Yoga und Breathwork über Pop-up Dinners und Weinverkostungen bis hin zu Open Mic Nights und Kulturabenden. Dafür suchen wir Partner:innen, die diesen besonderen Ort mit Leben füllen wollen.",
     "Du bist Yogalehrer:in, Koch/Köchin, Musiker:in, Künstler:in oder hast eine eigene Eventidee? Dann melde dich bei uns.",
   ],
-  features: ["150 m² Kirchenraum", "Offene Küche", "Buntglasfenster", "16 Stellplätze", "Tages- & Abendformate"],
+  features: ["150 m² Kirchenraum", "Designküche", "Buntglasfenster", "16 Stellplätze", "Tages- & Abendformate"],
   imageAlt: "Eventlocation CHURCH. Mannheim – Kirchenraum im Erdgeschoss",
   rentCta: "Location mieten",
   cta: "Partner werden",
@@ -75,7 +75,7 @@ export const faq = {
     },
     {
       q: "Kann man die CHURCH. als Eventlocation mieten?",
-      a: "Ja. Der Kirchenraum im Erdgeschoss mit rund 150 m² und offener Küche eignet sich für Firmenevents, Workshops, Dinner, Pop-up Stores und Kulturabende – tagsüber wie abends. Alle Infos zu Kapazität, Preisen und Catering findest du auf der Seite „Eventlocation mieten“.",
+      a: "Ja. Der Kirchenraum im Erdgeschoss mit rund 150 m² und ausgestatteter Designküche eignet sich für Firmenevents, Workshops, Dinner, Pop-up Stores und Kulturabende – tagsüber wie abends. Alle Infos zu Kapazität, Preisen und Catering findest du auf der Seite „Eventlocation mieten“.",
     },
     {
       q: "Wie funktioniert das Coworking in der CHURCH.?",
