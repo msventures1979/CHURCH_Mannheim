@@ -49,6 +49,11 @@ Versand: in Resend unter Broadcasts, Zielgruppe Segment „CHURCH. Newsletter“
 (Resend fügt ihn ein) und Impressum. Abmeldungen verwaltet Resend; die Supabase-Tabelle bleibt Nachweis der Einwilligung.
 Testabonnent: info@church-mannheim.com (bewusst drin, um jede Ausgabe selbst zu sehen).
 
+Wochenbericht: jeden Montag ca. 7 Uhr (Vercel Cron, `0 6 * * 1` UTC) an storch@msventures.de – neue Abonnenten,
+aktive/abgemeldete Kontakte laut Resend, offene Bestätigungen. Empfänger in `src/content/mails.ts`.
+Höchstens ein Bericht pro Kalenderwoche (Tabelle `newsletter_reports`). Nebeneffekt: Die wöchentliche Abfrage hält
+das kostenlose Supabase-Projekt aktiv (pausiert sonst nach 7 Tagen ohne Zugriff).
+
 ## Kalender
 
 Jede Event-Seite hat „In Kalender eintragen“ → `/events/<slug>/kalender.ics`.
