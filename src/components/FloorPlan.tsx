@@ -26,7 +26,6 @@ function Label({ x, y, children, small = false }: { x: number; y: number; childr
 }
 
 export default function FloorPlan() {
-  const zone = "fill-primary/15 stroke-primary/50";
   return (
     <figure className="w-full">
       <svg
@@ -62,7 +61,6 @@ export default function FloorPlan() {
         ))}
 
         {/* Offene Küche */}
-        <rect x={inX + 4.28 + 1.51} y={wall + 11.16} width={4.18} height={hallH - 11.16} className={zone} strokeWidth={0.04} />
         <Label x={inX + 4.28 + 1.51 + 2.09} y={wall + 13.2}>offene Küche</Label>
 
         {/* Foyer */}

@@ -86,8 +86,7 @@ const graph = {
       hasMap: site.mapsLink,
       openingHours: "Mo-Fr 09:00-18:00",
       amenityFeature: [
-        "Designküche",
-        "Bar und Lounge-Zone",
+        "Offene Küche",
         "Highspeed-WLAN",
         "16 Stellplätze",
         "Originale Buntglasfenster",
