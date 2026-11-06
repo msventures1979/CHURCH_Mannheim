@@ -23,7 +23,8 @@ export default function Hall() {
             ))}
           </div>
           <FeatureList items={hall.features} className="mt-10 grid-cols-2" />
-          <div className="mt-10">
+          <div className="mt-10 flex flex-wrap gap-4">
+            <ButtonLink href="/eventlocation-mieten">{hall.rentCta}</ButtonLink>
             <ButtonLink href="#kontakt">{hall.cta}</ButtonLink>
           </div>
         </div>

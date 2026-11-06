@@ -42,6 +42,7 @@ export const hall = {
   ],
   features: ["150 m² Kirchenraum", "Designküche", "Buntglasfenster", "16 Stellplätze", "Tages- & Abendformate"],
   imageAlt: "Eventlocation CHURCH. Mannheim – Kirchenraum im Erdgeschoss",
+  rentCta: "Location mieten",
   cta: "Partner werden",
 };
 
@@ -74,7 +75,7 @@ export const faq = {
     },
     {
       q: "Kann man die CHURCH. als Eventlocation mieten?",
-      a: "Ja. Der Kirchenraum im Erdgeschoss mit rund 150 m², Designküche, Bar und Lounge-Zone eignet sich für Firmenevents, Workshops, Dinner, Pop-up Stores und Kulturabende – tagsüber wie abends. Schick uns einfach eine Anfrage über das Kontaktformular.",
+      a: "Ja. Der Kirchenraum im Erdgeschoss mit rund 150 m², Designküche, Bar und Lounge-Zone eignet sich für Firmenevents, Workshops, Dinner, Pop-up Stores und Kulturabende – tagsüber wie abends. Alle Infos zu Kapazität, Preisen und Catering findest du auf der Seite „Eventlocation mieten“.",
     },
     {
       q: "Wie funktioniert das Coworking in der CHURCH.?",

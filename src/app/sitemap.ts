@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
   return [
     { url: absoluteUrl("/"), changeFrequency: "weekly", priority: 1, lastModified },
+    { url: absoluteUrl("/eventlocation-mieten"), changeFrequency: "monthly", priority: 0.95, lastModified },
     { url: absoluteUrl("/events"), changeFrequency: "daily", priority: 0.9, lastModified },
     ...upcomingEvents().map((e) => ({
       url: absoluteUrl(`/events/${e.slug}`),
