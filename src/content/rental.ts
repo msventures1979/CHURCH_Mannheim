@@ -4,7 +4,7 @@ export const rental = {
   meta: {
     title: "Eventlocation Mannheim mieten – Kapelle von 1893 | CHURCH.",
     description:
-      "Eventlocation in Mannheim mieten: 150 m² Kirchenraum mit Buntglasfenstern, offener Designküche im Turley-Quartier. Für Firmenevents, Dinner, Workshops & Feiern – ab 1.000 € pro Abend.",
+      "Eventlocation in Mannheim mieten: Kapelle von 1893 mit 150 m², Buntglasfenstern und Designküche. Für Firmenevents, Dinner, Workshops & Feiern – ab 1.000 €/Abend.",
   },
 
   hero: {
