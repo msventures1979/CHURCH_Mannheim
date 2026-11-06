@@ -3,7 +3,7 @@
 
 export const confirmationMail = {
   // Erst einschalten, wenn der Text freigegeben ist
-  enabled: false,
+  enabled: true,
   subject: "Danke für deine Anfrage – CHURCH. Mannheim",
   greeting: "Hallo {vorname},",
   greetingWithoutName: "Hallo,",
