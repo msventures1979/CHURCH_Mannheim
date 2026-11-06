@@ -37,6 +37,18 @@ Getestet am 05.11.2026: Eintrag gespeichert, Mail zugestellt. Testeinträge gel�
 
 Bestätigungsmail an Anfragende (seit 06.11.2026 aktiv): Texte in `src/content/mails.ts` (Schalter `enabled`), Aufbau in `src/lib/confirmation-mail.ts`. Übernimmt nur Vorname und Thema, nie die Nachricht (Schutz vor Missbrauch). Zusage: Antwort in der Regel innerhalb von zwei Werktagen.
 
+## Newsletter (seit 06.11.2026)
+
+Double-Opt-In: Anmeldung im Footer jeder Seite (`#newsletter`), Hinweis auf Event-Seiten, Checkbox im Kontaktformular.
+Bestätigungslink → `/newsletter/bestaetigen` (Bestätigung per Klick, damit Mail-Scanner nichts auslösen).
+Einwilligungsnachweis in Supabase `newsletter_subscribers`; bestätigte Adressen landen im Resend-Segment
+„CHURCH. Newsletter“ (`RESEND_SEGMENT_ID`), angelegt mit `RESEND_CONTACTS_API_KEY` (voller Zugriff, nur serverseitig).
+Texte: `src/content/newsletter.ts`. Unbestätigte Anmeldungen werden nach 30 Tagen gelöscht.
+
+Versand: in Resend unter Broadcasts, Zielgruppe Segment „CHURCH. Newsletter“. In jede Ausgabe gehören Abmeldelink
+(Resend fügt ihn ein) und Impressum. Abmeldungen verwaltet Resend; die Supabase-Tabelle bleibt Nachweis der Einwilligung.
+Testabonnent: info@church-mannheim.com (bewusst drin, um jede Ausgabe selbst zu sehen).
+
 ## Kalender
 
 Jede Event-Seite hat „In Kalender eintragen“ → `/events/<slug>/kalender.ics`.
