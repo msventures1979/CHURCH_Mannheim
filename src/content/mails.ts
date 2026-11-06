@@ -18,3 +18,9 @@ export const confirmationMail = {
   footer:
     "Du erhältst diese E-Mail, weil über das Kontaktformular auf church-mannheim.com eine Anfrage mit deiner Adresse gesendet wurde. Warst das nicht du? Dann kannst du diese Nachricht einfach ignorieren.",
 };
+
+// Wöchentlicher Newsletter-Bericht (montags) – Empfänger hier ändern
+export const newsletterReport = {
+  to: "storch@msventures.de",
+  subject: "CHURCH. Newsletter – Wochenbericht",
+};
