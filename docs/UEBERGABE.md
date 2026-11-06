@@ -35,6 +35,12 @@ Server Action → Tabelle `inquiries` (Supabase, RLS an, nur service_role) + Ben
 Antworten auf die Mail gehen direkt an den Absender. Spamschutz: Honeypot, 3 s Mindestzeit, max. 3 Anfragen / 10 Min.
 Getestet am 05.11.2026: Eintrag gespeichert, Mail zugestellt. Testeinträge gelöscht.
 
+Bestätigungsmail an Anfragende (seit 06.11.2026 aktiv): Texte in `src/content/mails.ts` (Schalter `enabled`), Aufbau in `src/lib/confirmation-mail.ts`. Übernimmt nur Vorname und Thema, nie die Nachricht (Schutz vor Missbrauch). Zusage: Antwort in der Regel innerhalb von zwei Werktagen.
+
+## Kalender
+
+Jede Event-Seite hat „In Kalender eintragen“ → `/events/<slug>/kalender.ics`.
+
 ## Umgebungsvariablen (Vercel, Production + Preview)
 
 `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` (Secret, `sb_secret_…`),
@@ -50,7 +56,8 @@ Solange Lovable läuft: bei IONOS A-Records `@` und `www` wieder auf `185.158.13
 - [ ] TXT `_lovable` bei IONOS löschen
 - [ ] Lovable-Projekt abschalten, Abo kündigen
 - [ ] Sitemap `https://www.church-mannheim.com/sitemap.xml` in der Google Search Console einreichen
-- [ ] Impressum: USt-IdNr. ergänzen, falls vorhanden; Anbieteradressen in der Datenschutzerklärung mit den AV-Verträgen abgleichen
+- [x] Impressum: USt-IdNr. DE266133935 ergänzt (06.11.2026)
+- [ ] Anbieteradressen in der Datenschutzerklärung mit den AV-Verträgen abgleichen
 
 ## Hinweise
 
