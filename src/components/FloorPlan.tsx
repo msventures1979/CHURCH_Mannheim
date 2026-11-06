@@ -61,7 +61,8 @@ export default function FloorPlan() {
         ))}
 
         {/* Offene Küche */}
-        <Label x={inX + 4.28 + 1.51 + 2.09} y={wall + 13.2}>offene Küche</Label>
+        <Label x={inX + 4.28 + 1.51 + 2.09} y={wall + 12.85}>offene</Label>
+        <Label x={inX + 4.28 + 1.51 + 2.09} y={wall + 13.55}>Küche</Label>
 
         {/* Foyer */}
         <rect x={inX} y={foyerTop} width={inW} height={H - 0.52 - wall - foyerTop} className="fill-background stroke-primary/40" strokeWidth={0.04} />

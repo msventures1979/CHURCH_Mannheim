@@ -83,7 +83,7 @@ export default function RentalPage() {
               >
                 {rental.hero.cta}
               </a>
-              <a href="#preise" className="text-sm uppercase tracking-widest text-primary transition-colors hover:text-foreground">
+              <a href="#preise" className="inline-block py-3 text-sm uppercase tracking-widest text-primary transition-colors hover:text-foreground">
                 Preise ansehen →
               </a>
             </div>
@@ -232,9 +232,9 @@ export default function RentalPage() {
               <div className="mt-10 space-y-4 text-sm text-muted-foreground">
                 <p>
                   <span className="mb-1 block text-xs uppercase tracking-widest">Lieber direkt?</span>
-                  <a href={site.phoneHref} className="text-foreground hover:text-primary">{site.phone}</a>
+                  <a href={site.phoneHref} className="inline-block py-2 text-foreground hover:text-primary">{site.phone}</a>
                   <br />
-                  <a href={`mailto:${site.email}`} className="text-foreground hover:text-primary">{site.email}</a>
+                  <a href={`mailto:${site.email}`} className="inline-block py-2 text-foreground hover:text-primary">{site.email}</a>
                 </p>
               </div>
             </div>
