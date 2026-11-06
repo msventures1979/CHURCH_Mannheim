@@ -19,7 +19,7 @@ const images: { src: StaticImageData; alt: string; portrait?: boolean }[] = [
   { src: imgGlassCloseup, alt: "Buntglasfenster – Detail" },
   { src: imgGlass, alt: "Kirchenraum mit Buntglasfenster", portrait: true },
   { src: imgHall, alt: "Eventlocation CHURCH. Mannheim – Kirchenraum mit Eingang" },
-  { src: imgKitchen, alt: "Designküche der Eventlocation im Erdgeschoss" },
+  { src: imgKitchen, alt: "Offene Küche der Eventlocation im Erdgeschoss" },
   { src: imgLightBench, alt: "Lichtspiel auf Kirchenbank" },
   { src: imgGlassDetail, alt: "Buntglas – Nahaufnahme", portrait: true },
   { src: imgExteriorSide, alt: "Kapelle im Turley-Quartier Mannheim – Seitenansicht", portrait: true },
