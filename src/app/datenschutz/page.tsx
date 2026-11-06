@@ -62,8 +62,28 @@ export default function DatenschutzPage() {
         </p>
       </section>
 
+      <section id="newsletter">
+        <h2>4. Newsletter</h2>
+        <p>
+          Wenn Sie sich für unseren Newsletter anmelden, verarbeiten wir Ihre E-Mail-Adresse, um Ihnen Informationen zu
+          Programm, Events und Neuigkeiten der CHURCH. zu senden. Die Anmeldung erfolgt im Double-Opt-In-Verfahren: Erst
+          nach Klick auf den Link in unserer Bestätigungsmail werden Sie in den Verteiler aufgenommen. Zum Nachweis der
+          Einwilligung speichern wir den Zeitpunkt von Anmeldung und Bestätigung, den Wortlaut der Einwilligung, einen
+          verkürzten, nicht rückrechenbaren Prüfwert Ihrer IP-Adresse und die Browserkennung.
+        </p>
+        <p className="mt-3">
+          Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO. Sie können sie jederzeit über den
+          Abmeldelink in jeder Mail oder per Nachricht an <a href={`mailto:${site.email}`}>{site.email}</a> widerrufen.
+          Die Anmeldedaten speichern wir bei Supabase (Rechenzentrum Frankfurt am Main), den Versand übernimmt Resend
+          (siehe Abschnitt 3). Nach einer Abmeldung erhalten Sie keine Newsletter mehr. Den Nachweis der früheren
+          Einwilligung bewahren wir bis zu drei Jahre auf, um die Rechtmäßigkeit des Versands belegen zu können (Art. 6
+          Abs. 1 lit. f DSGVO); auf Wunsch löschen wir Ihre Daten vollständig. Unbestätigte Anmeldungen löschen wir nach
+          spätestens 30 Tagen.
+        </p>
+      </section>
+
       <section id="analytics">
-        <h2>4. Google Analytics (nur mit Einwilligung)</h2>
+        <h2>5. Google Analytics (nur mit Einwilligung)</h2>
         <p>
           Wenn Sie im Cookie-Hinweis einwilligen, nutzen wir Google Analytics 4 der Google Ireland Limited, Gordon House,
           Barrow Street, Dublin 4, Irland. Google Analytics setzt Cookies und wertet aus, wie Besucher die Website nutzen
@@ -84,7 +104,7 @@ export default function DatenschutzPage() {
       </section>
 
       <section id="karte">
-        <h2>5. Google Maps (erst nach Klick)</h2>
+        <h2>6. Google Maps (erst nach Klick)</h2>
         <p>
           Im Kontaktbereich können Sie eine Karte von Google Maps (Google Ireland Limited) laden. Die Karte wird erst
           eingebunden, wenn Sie auf „Karte laden“ klicken. Erst dann wird eine Verbindung zu Servern von Google hergestellt
@@ -94,7 +114,7 @@ export default function DatenschutzPage() {
       </section>
 
       <section>
-        <h2>6. Schriften, Links und WhatsApp</h2>
+        <h2>7. Schriften, Links und WhatsApp</h2>
         <p>
           Alle Schriften werden von unserem eigenen Server geladen; es besteht keine Verbindung zu Google Fonts. Links zu
           Instagram, LinkedIn, WhatsApp, Ticket-Shops unserer Partner und anderen Websites sind einfache Verlinkungen: Daten
@@ -104,7 +124,7 @@ export default function DatenschutzPage() {
       </section>
 
       <section>
-        <h2>7. Ihre Rechte</h2>
+        <h2>8. Ihre Rechte</h2>
         <p>Sie haben jederzeit das Recht auf:</p>
         <ul className="mt-2 list-inside list-disc space-y-1">
           <li>Auskunft über Ihre gespeicherten Daten (Art. 15 DSGVO)</li>
@@ -121,7 +141,7 @@ export default function DatenschutzPage() {
       </section>
 
       <section>
-        <h2>8. Beschwerderecht</h2>
+        <h2>9. Beschwerderecht</h2>
         <p>
           Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Zuständig ist der
           Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg.
@@ -129,7 +149,7 @@ export default function DatenschutzPage() {
       </section>
 
       <section>
-        <h2>9. Stand</h2>
+        <h2>10. Stand</h2>
         <p>November 2026</p>
       </section>
     </LegalPage>

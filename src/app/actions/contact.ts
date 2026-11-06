@@ -1,12 +1,12 @@
 "use server";
 
-import { createHash } from "node:crypto";
-import { headers } from "next/headers";
 import { z } from "zod";
 import { contact } from "@/content/home";
 import { confirmationMail } from "@/content/mails";
 import { buildConfirmationMail } from "@/lib/confirmation-mail";
 import { escapeHtml, getResend } from "@/lib/mail";
+import { startNewsletterSubscription } from "@/lib/newsletter";
+import { getRequestMeta } from "@/lib/request-meta";
 import { getSupabase } from "@/lib/supabase";
 
 export type ContactState = {
@@ -21,6 +21,7 @@ const schema = z.object({
   phone: z.string().trim().max(30).optional().default(""),
   interest: z.enum(contact.interests as unknown as [string, ...string[]]).catch("Sonstiges"),
   message: z.string().trim().max(2000).optional().default(""),
+  newsletter: z.literal("on").optional(),
 });
 
 const MIN_FILL_MS = 3000;
@@ -42,6 +43,7 @@ export async function submitContact(_prev: ContactState, formData: FormData): Pr
     phone: formData.get("phone") ?? "",
     interest: formData.get("interest") ?? "",
     message: formData.get("message") ?? "",
+    newsletter: formData.get("newsletter") ?? undefined,
   });
   if (!parsed.success) {
     const errors: ContactState["errors"] = {};
@@ -53,13 +55,7 @@ export async function submitContact(_prev: ContactState, formData: FormData): Pr
   }
   const data = parsed.data;
 
-  const h = await headers();
-  const ip = h.get("x-forwarded-for")?.split(",")[0]?.trim() || h.get("x-real-ip") || "unknown";
-  const ipHash = createHash("sha256")
-    .update(`${ip}:${process.env.SUPABASE_SERVICE_ROLE_KEY ?? "church"}`)
-    .digest("hex")
-    .slice(0, 32);
-  const userAgent = (h.get("user-agent") ?? "").slice(0, 300);
+  const { ipHash, userAgent } = await getRequestMeta();
 
   const supabase = getSupabase();
   let stored = false;
@@ -143,5 +139,10 @@ export async function submitContact(_prev: ContactState, formData: FormData): Pr
   }
 
   if (!stored && !mailed) return { status: "error", message: contact.error };
+
+  // Newsletter nur bei ausdrücklich angehakter Checkbox – Double-Opt-In per eigener Mail
+  if (data.newsletter === "on") {
+    await startNewsletterSubscription({ email: data.email, source: "kontaktformular", ipHash, userAgent });
+  }
   return { status: "success", message: contact.success };
 }

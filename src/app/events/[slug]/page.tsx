@@ -18,6 +18,7 @@ import {
 import { getPartner } from "@/content/partners";
 import { absoluteUrl, site } from "@/content/site";
 import { breadcrumbJsonLd, JsonLd } from "@/lib/seo";
+import { newsletter } from "@/content/newsletter";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -247,6 +248,11 @@ export default async function EventDetailPage({ params }: Props) {
               </a>
 
               <p className="mt-5 text-xs text-muted-foreground">
+                {newsletter.eventHint}{" "}
+                <a href="#newsletter" className="text-primary hover:text-foreground">{newsletter.eventHintLink} →</a>
+              </p>
+
+              <p className="mt-2 text-xs text-muted-foreground">
                 Fragen?{" "}
                 <a href={`mailto:${site.email}`} className="text-primary hover:text-foreground">{site.email}</a>
               </p>

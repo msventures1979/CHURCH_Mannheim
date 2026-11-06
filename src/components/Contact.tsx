@@ -3,6 +3,7 @@
 import { startTransition, useActionState, useEffect, useRef, useState } from "react";
 import { submitContact, type ContactState } from "@/app/actions/contact";
 import { contact } from "@/content/home";
+import { newsletter } from "@/content/newsletter";
 import { site } from "@/content/site";
 import FadeIn from "./FadeIn";
 import MapEmbed from "./MapEmbed";
@@ -79,6 +80,11 @@ export default function Contact() {
               <label htmlFor="contact-message" className={labelCls}>Nachricht</label>
               <textarea id="contact-message" name="message" rows={4} maxLength={2000} className={`${fieldCls} resize-none`} />
             </div>
+
+            <label htmlFor="contact-newsletter" className="flex cursor-pointer items-start gap-3 text-sm text-muted-foreground">
+              <input id="contact-newsletter" name="newsletter" type="checkbox" className="mt-0.5 h-4 w-4 shrink-0 accent-[#c9b79c]" />
+              <span>{newsletter.contactCheckbox}</span>
+            </label>
 
             <p className="text-xs leading-relaxed text-muted-foreground">
               Wir verwenden deine Angaben nur, um deine Anfrage zu beantworten. Details in der{" "}

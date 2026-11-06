@@ -3,14 +3,28 @@ import Link from "next/link";
 import econoLogo from "@/assets/econo-logo.jpg";
 import { site } from "@/content/site";
 import { ConsentLink } from "./Consent";
+import { newsletter } from "@/content/newsletter";
 import { InstagramIcon, LinkedinIcon } from "./Icons";
+import NewsletterSignup from "./NewsletterSignup";
 
 const linkCls = "text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground";
 
-export default function Footer() {
+export default function Footer({ hideNewsletter = false }: { hideNewsletter?: boolean }) {
   return (
     <footer className="border-t border-border px-6 py-12 md:px-12 lg:px-24">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-10">
+        {!hideNewsletter && (
+        <section id="newsletter" className="w-full max-w-xl scroll-mt-28 border-b border-border pb-12 pt-4 text-center" aria-labelledby="newsletter-heading">
+          <h2 id="newsletter-heading" className="font-display text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+            {newsletter.headline}
+          </h2>
+          <p className="mx-auto mb-6 mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">{newsletter.text}</p>
+          <div className="text-left">
+            <NewsletterSignup source="footer" />
+          </div>
+        </section>
+        )}
+
         <div className="flex flex-col items-center gap-3">
           <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Bekannt aus</span>
           <a
