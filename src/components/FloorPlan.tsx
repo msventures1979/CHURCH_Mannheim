@@ -37,17 +37,13 @@ export default function FloorPlan() {
       >
         <title id="floorplan-title">Grundriss Erdgeschoss der CHURCH.</title>
         <desc id="floorplan-desc">
-          Saal mit rund 150 Quadratmetern: Küche an der Stirnseite, freie Fläche mit vier Stützen, Lounge- und Barbereich am
-          Eingang, davor Foyer mit Treppe zum Obergeschoss und WCs.
+          Saal mit rund 150 Quadratmetern: freie Fläche mit vier Stützen, offene Küche vorne rechts am Eingang, davor Foyer
+          mit Treppe zum Obergeschoss und WCs.
         </desc>
 
         {/* Außenwände */}
         <rect x={0} y={0} width={W} height={H - 0.52} className="fill-card stroke-primary" strokeWidth={0.12} />
         <rect x={inX} y={wall} width={inW} height={hallH} className="fill-background stroke-primary/40" strokeWidth={0.04} />
-
-        {/* Küche */}
-        <rect x={inX} y={wall} width={inW} height={2.3} className={zone} strokeWidth={0.04} />
-        <Label x={W / 2} y={wall + 1.15}>Küche & Ausgabe</Label>
 
         {/* Freie Fläche */}
         <Label x={W / 2} y={wall + 6.6}>Saal</Label>
@@ -65,24 +61,14 @@ export default function FloorPlan() {
           <circle key={`${x}-${y}`} cx={x} cy={y} r={0.16} className="fill-card stroke-primary" strokeWidth={0.05} />
         ))}
 
-        {/* Lounge & Bar */}
-        <rect x={inX} y={wall + 11.16} width={4.28} height={hallH - 11.16} className={zone} strokeWidth={0.04} />
-        <Label x={inX + 2.14} y={wall + 13.2}>Lounge</Label>
+        {/* Offene Küche */}
         <rect x={inX + 4.28 + 1.51} y={wall + 11.16} width={4.18} height={hallH - 11.16} className={zone} strokeWidth={0.04} />
-        <Label x={inX + 4.28 + 1.51 + 2.09} y={wall + 13.2}>Bar</Label>
+        <Label x={inX + 4.28 + 1.51 + 2.09} y={wall + 13.2}>offene Küche</Label>
 
-        {/* Foyer, Treppe, WC */}
+        {/* Foyer */}
         <rect x={inX} y={foyerTop} width={inW} height={H - 0.52 - wall - foyerTop} className="fill-background stroke-primary/40" strokeWidth={0.04} />
-        <rect x={inX} y={foyerTop} width={3.6} height={2.9} className="fill-card stroke-primary/40" strokeWidth={0.04} />
-        <Label x={inX + 1.8} y={foyerTop + 1.45} small>
-          Treppe OG
-        </Label>
-        <rect x={inX + 6.1} y={foyerTop} width={inW - 6.1} height={2.9} className="fill-card stroke-primary/40" strokeWidth={0.04} />
-        <Label x={inX + 6.1 + (inW - 6.1) / 2} y={foyerTop + 1.45} small>
-          WC
-        </Label>
-        <Label x={W / 2} y={foyerTop + 1.45} small>
-          Foyer
+        <Label x={W / 2} y={foyerTop + 1.2} small>
+          Foyer · Treppe OG · WC
         </Label>
 
         {/* Eingang */}
@@ -107,7 +93,7 @@ export default function FloorPlan() {
         </text>
       </svg>
       <figcaption className="mt-4 text-center text-xs text-muted-foreground">
-        Erdgeschoss, schematisch · Saal ca. 150 m² inkl. Küche · vier Stützen im Raum
+        Erdgeschoss, schematisch · Saal ca. 150 m² inkl. offener Küche · vier Stützen im Raum
       </figcaption>
     </figure>
   );

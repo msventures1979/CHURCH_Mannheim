@@ -38,7 +38,7 @@ export const rental = {
   space: {
     eyebrow: "Raum & Kapazität",
     headline: "Ein Raum. Viele Möglichkeiten.",
-    text: "Der Saal im Erdgeschoss misst rund 10 × 15 Meter. An der Stirnseite liegt die Designküche, am Eingang Lounge und Bar. Bestuhlung und Tische stellen wir nach euren Wünschen – von der langen Tafel bis zur Stuhlreihe.",
+    text: "Der Saal im Erdgeschoss misst rund 10 × 15 Meter. Vorne am Eingang liegt die offene Küche. Bestuhlung und Tische stellen wir nach euren Wünschen – von der langen Tafel bis zur Stuhlreihe.",
     capacityNote: "Richtwerte. Die genaue Zahl hängt von Aufbau, Bühne und Catering ab – wir planen das gemeinsam mit euch.",
     capacities: [
       { setup: "Stehempfang", guests: "bis ca. 150" },
