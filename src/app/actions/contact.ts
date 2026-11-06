@@ -22,6 +22,11 @@ const schema = z.object({
   interest: z.enum(contact.interests as unknown as [string, ...string[]]).catch("Sonstiges"),
   message: z.string().trim().max(2000).optional().default(""),
   newsletter: z.literal("on").optional(),
+  // Zusatzfelder der Seite „Eventlocation mieten“
+  eventDate: z.string().trim().max(40).optional().default(""),
+  guests: z.string().trim().max(10).optional().default(""),
+  eventType: z.string().trim().max(60).optional().default(""),
+  timeOfDay: z.string().trim().max(40).optional().default(""),
 });
 
 const MIN_FILL_MS = 3000;
@@ -44,6 +49,10 @@ export async function submitContact(_prev: ContactState, formData: FormData): Pr
     interest: formData.get("interest") ?? "",
     message: formData.get("message") ?? "",
     newsletter: formData.get("newsletter") ?? undefined,
+    eventDate: formData.get("eventDate") ?? "",
+    guests: formData.get("guests") ?? "",
+    eventType: formData.get("eventType") ?? "",
+    timeOfDay: formData.get("timeOfDay") ?? "",
   });
   if (!parsed.success) {
     const errors: ContactState["errors"] = {};
@@ -54,6 +63,14 @@ export async function submitContact(_prev: ContactState, formData: FormData): Pr
     return { status: "error", errors };
   }
   const data = parsed.data;
+  // Eventdetails vor die Nachricht setzen, damit sie in Mail und Datenbank stehen
+  const details = [
+    data.eventType && `Art: ${data.eventType}`,
+    data.eventDate && `Wunschtermin: ${data.eventDate}`,
+    data.timeOfDay && `Zeitraum: ${data.timeOfDay}`,
+    data.guests && `Personen: ${data.guests}`,
+  ].filter(Boolean);
+  if (details.length) data.message = `${details.join("\n")}${data.message ? `\n\n${data.message}` : ""}`.slice(0, 2000);
 
   const { ipHash, userAgent } = await getRequestMeta();
 
