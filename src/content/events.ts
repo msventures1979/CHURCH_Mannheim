@@ -80,6 +80,27 @@ export const otherDatesInSeries = (e: EventDate) =>
 
 export const isTicketEvent = (e: EventDate) => !e.endDate;
 
+// UTC-Versatz von Mannheim an einem Tag, z. B. "+01:00" (Winter) oder "+02:00" (Sommer)
+export function berlinOffset(iso: string) {
+  const name = new Intl.DateTimeFormat("en-US", { timeZone: "Europe/Berlin", timeZoneName: "shortOffset" })
+    .formatToParts(new Date(`${iso}T12:00:00Z`))
+    .find((p) => p.type === "timeZoneName")?.value; // "GMT+1"
+  const h = Number(name?.replace("GMT", "") || 1);
+  return `${h >= 0 ? "+" : "-"}${String(Math.abs(h)).padStart(2, "0")}:00`;
+}
+
+// Beginn und Ende als ISO-Zeit mit Zeitzone. Abende: Dauer 2,5 Std.; Zeiträume (Pop-up): 10–18 Uhr.
+export function eventSchedule(e: EventDate) {
+  const [hh = e.endDate ? "10" : "17", mm = "00"] = e.time.match(/\d+/g) ?? [];
+  const pad = (n: string | number) => String(n).padStart(2, "0");
+  const start = `${e.date}T${pad(hh)}:${pad(mm)}:00${berlinOffset(e.date)}`;
+  const endMinutes = Number(hh) * 60 + Number(mm) + 150;
+  const end = e.endDate
+    ? `${e.endDate}T18:00:00${berlinOffset(e.endDate)}`
+    : `${e.date}T${pad(Math.floor(endMinutes / 60))}:${pad(endMinutes % 60)}:00${berlinOffset(e.date)}`;
+  return { start, end };
+}
+
 const WEEKDAYS = ["So.", "Mo.", "Di.", "Mi.", "Do.", "Fr.", "Sa."];
 const MONTHS = [
   "Januar", "Februar", "März", "April", "Mai", "Juni",

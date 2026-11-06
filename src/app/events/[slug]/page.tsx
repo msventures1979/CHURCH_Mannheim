@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import {
   events,
+  eventSchedule,
   formatDateRange,
   getEvent,
   getEventSeries,
@@ -56,22 +57,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-// UTC-Versatz von Mannheim an einem Tag, z. B. "+01:00" oder "+02:00"
-function berlinOffset(iso: string) {
-  const name = new Intl.DateTimeFormat("en-US", { timeZone: "Europe/Berlin", timeZoneName: "shortOffset" })
-    .formatToParts(new Date(`${iso}T12:00:00Z`))
-    .find((p) => p.type === "timeZoneName")?.value; // "GMT+1"
-  const h = Number(name?.replace("GMT", "") || 1);
-  return `${h >= 0 ? "+" : "-"}${String(Math.abs(h)).padStart(2, "0")}:00`;
-}
-
 function eventJsonLd(event: EventDate, data: NonNullable<ReturnType<typeof load>>) {
   const { series, partner } = data;
-  const [hh = "17", mm = "00"] = event.time.match(/\d+/g) ?? (event.endDate ? ["10", "00"] : []);
-  const start = `${event.date}T${hh.padStart(2, "0")}:${mm.padStart(2, "0")}:00${berlinOffset(event.date)}`;
-  const end = event.endDate
-    ? `${event.endDate}T18:00:00${berlinOffset(event.endDate)}`
-    : `${event.date}T${String(Number(hh) + 2).padStart(2, "0")}:30:00${berlinOffset(event.date)}`;
+  const { start, end } = eventSchedule(event);
   const availability =
     event.status === "sold_out"
       ? "https://schema.org/SoldOut"
@@ -249,6 +237,14 @@ export default async function EventDetailPage({ params }: Props) {
                   {ctaLabel}
                 </a>
               )}
+
+              <a
+                href={`/events/${event.slug}/kalender.ics`}
+                download={`church-${event.slug}.ics`}
+                className="mt-3 block w-full border border-border px-6 py-3 text-center text-xs uppercase tracking-widest text-muted-foreground transition-colors duration-300 hover:border-foreground hover:text-foreground"
+              >
+                In Kalender eintragen
+              </a>
 
               <p className="mt-5 text-xs text-muted-foreground">
                 Fragen?{" "}

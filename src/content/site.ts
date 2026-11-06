@@ -35,6 +35,7 @@ export const site = {
     representative: "Matthias Storch, Geschäftsführer",
     register: "Handelsregister B des Amtsgerichts Mannheim",
     registerNumber: "HRB 707144",
+    vatId: "DE266133935",
     responsible: "Matthias Storch",
   },
 } as const;

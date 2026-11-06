@@ -4,6 +4,8 @@ import { createHash } from "node:crypto";
 import { headers } from "next/headers";
 import { z } from "zod";
 import { contact } from "@/content/home";
+import { confirmationMail } from "@/content/mails";
+import { buildConfirmationMail } from "@/lib/confirmation-mail";
 import { escapeHtml, getResend } from "@/lib/mail";
 import { getSupabase } from "@/lib/supabase";
 
@@ -122,6 +124,20 @@ export async function submitContact(_prev: ContactState, formData: FormData): Pr
     });
     if (error) console.error("[contact] mail failed", error.message);
     else mailed = true;
+
+    // Bestätigung an den Absender (nur wenn eingeschaltet und die Anfrage gespeichert oder gemeldet wurde)
+    if (confirmationMail.enabled && (stored || mailed)) {
+      const c = buildConfirmationMail({ name: data.name, interest: data.interest });
+      const { error: cErr } = await resend.emails.send({
+        from,
+        to: data.email,
+        replyTo: to.split(",")[0].trim(),
+        subject: c.subject,
+        html: c.html,
+        text: c.text,
+      });
+      if (cErr) console.error("[contact] confirmation failed", cErr.message);
+    }
   } else {
     console.warn("[contact] Resend nicht konfiguriert");
   }

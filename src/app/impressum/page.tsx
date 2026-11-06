@@ -40,6 +40,14 @@ export default function ImpressumPage() {
         </p>
       </section>
       <section>
+        <h2>Umsatzsteuer-ID</h2>
+        <p>
+          Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:
+          <br />
+          {site.company.vatId}
+        </p>
+      </section>
+      <section>
         <h2>Kontakt</h2>
         <p>
           E-Mail: <a href={`mailto:${site.email}`}>{site.email}</a>

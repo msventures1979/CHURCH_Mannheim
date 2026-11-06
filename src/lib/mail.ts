@@ -10,5 +10,4 @@ export function getResend(): Resend | null {
   return resend;
 }
 
-export const escapeHtml = (s: string) =>
-  s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+export { escapeHtml } from "./escape";
