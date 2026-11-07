@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound, permanentRedirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import {
@@ -21,7 +21,7 @@ import { breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 import { newsletter } from "@/content/newsletter";
 
 export const revalidate = 3600;
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -108,7 +108,8 @@ function eventJsonLd(event: EventDate, data: NonNullable<ReturnType<typeof load>
 
 export default async function EventDetailPage({ params }: Props) {
   const data = load((await params).slug);
-  if (!data) notFound();
+  // Unbekannte oder gelöschte Events (z. B. alte Termine) landen auf der Übersicht statt auf 404
+  if (!data) permanentRedirect("/events");
   const { event, series, partner } = data;
   if (isPast(event)) permanentRedirect("/events");
 

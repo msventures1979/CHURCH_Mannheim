@@ -47,6 +47,8 @@ const nextConfig: NextConfig = {
     return [
       // Bisherige Pfade bleiben gleich; vergangene Events leitet die Seite selbst auf /events
       { source: "/index.html", destination: "/", permanent: true },
+      // Alte, bei Google indexierte Seite aus der Lovable-Zeit
+      { source: "/freie-trauung", destination: "/eventlocation-mieten", permanent: true },
     ];
   },
 };
