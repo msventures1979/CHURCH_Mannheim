@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: absoluteUrl("/"), changeFrequency: "weekly", priority: 1 },
     { url: absoluteUrl("/eventlocation-mieten"), changeFrequency: "monthly", priority: 0.95 },
+    { url: absoluteUrl("/coworking-mannheim"), changeFrequency: "monthly", priority: 0.9 },
     { url: absoluteUrl("/events"), changeFrequency: "daily", priority: 0.9 },
     ...upcomingEvents().map((e) => ({
       url: absoluteUrl(`/events/${e.slug}`),

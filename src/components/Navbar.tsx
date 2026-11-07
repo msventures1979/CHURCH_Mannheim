@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const navLinks = [
-  { label: "Coworking", href: "/#coworking" },
+  { label: "Coworking", href: "/coworking-mannheim" },
   { label: "Events", href: "/events" },
   { label: "Location mieten", href: "/eventlocation-mieten" },
   { label: "Galerie", href: "/#galerie" },

@@ -18,7 +18,7 @@ export default function Coworking() {
         </div>
         <FeatureList items={coworking.features} className="mt-12 grid-cols-2 md:grid-cols-3" />
         <div className="mt-12">
-          <ButtonLink href="#kontakt">{coworking.cta}</ButtonLink>
+          <ButtonLink href="/coworking-mannheim">{coworking.pageCta}</ButtonLink>
         </div>
       </FadeIn>
     </section>
