@@ -5,16 +5,14 @@ import { absoluteUrl } from "@/content/site";
 export const revalidate = 3600;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
   return [
-    { url: absoluteUrl("/"), changeFrequency: "weekly", priority: 1, lastModified },
-    { url: absoluteUrl("/eventlocation-mieten"), changeFrequency: "monthly", priority: 0.95, lastModified },
-    { url: absoluteUrl("/events"), changeFrequency: "daily", priority: 0.9, lastModified },
+    { url: absoluteUrl("/"), changeFrequency: "weekly", priority: 1 },
+    { url: absoluteUrl("/eventlocation-mieten"), changeFrequency: "monthly", priority: 0.95 },
+    { url: absoluteUrl("/events"), changeFrequency: "daily", priority: 0.9 },
     ...upcomingEvents().map((e) => ({
       url: absoluteUrl(`/events/${e.slug}`),
       changeFrequency: "weekly" as const,
       priority: 0.8,
-      lastModified,
     })),
     { url: absoluteUrl("/impressum"), changeFrequency: "yearly", priority: 0.2 },
   ];
