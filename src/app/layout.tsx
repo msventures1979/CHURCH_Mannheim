@@ -100,9 +100,9 @@ const graph = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de">
+    <html lang="de" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js');try{var c=localStorage.getItem('church-consent-v1');if(c)document.documentElement.setAttribute('data-consent',c)}catch(e){}" }} />
       </head>
       <body>
         <JsonLd data={graph} />

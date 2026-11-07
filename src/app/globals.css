@@ -81,3 +81,6 @@
   html { scroll-behavior: auto; }
   .js .fade-in-section { opacity: 1; transform: none; transition: none; }
 }
+
+/* Cookie-Hinweis wird serverseitig ausgeliefert (früher sichtbar), bei vorhandener Wahl vor dem ersten Zeichnen ausgeblendet */
+html[data-consent] [data-consent-banner] { display: none; }

@@ -51,6 +51,9 @@ export default function Footer({ hideNewsletter = false }: { hideNewsletter?: bo
           </div>
 
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-3">
+            <Link href="/eventlocation-mieten" className={linkCls}>Location mieten</Link>
+            <Link href="/coworking-mannheim" className={linkCls}>Coworking</Link>
+            <Link href="/events" className={linkCls}>Events</Link>
             <Link href="/impressum" className={linkCls}>Impressum</Link>
             <Link href="/datenschutz" className={linkCls}>Datenschutz</Link>
             <ConsentLink className={linkCls} />

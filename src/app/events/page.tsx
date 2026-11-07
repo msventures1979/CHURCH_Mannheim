@@ -82,7 +82,7 @@ export default function EventsPage() {
               Wochen den passenden Rahmen.
             </p>
             <div className="mt-10">
-              <ButtonLink href="/#kontakt">Pop-up anfragen</ButtonLink>
+              <ButtonLink href="/eventlocation-mieten#anfrage">Pop-up anfragen</ButtonLink>
             </div>
           </div>
         </section>
@@ -93,10 +93,12 @@ export default function EventsPage() {
               Deine Idee. Unser Kirchenraum.
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
-              Du hast ein Eventkonzept und suchst einen besonderen Ort? Werde Partner:in der CHURCH.
+              Du hast ein Eventkonzept und suchst einen besonderen Ort? Werde Partner:in der CHURCH. – oder miete den
+              Kirchenraum für dein eigenes Event.
             </p>
-            <div className="mt-10">
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
               <ButtonLink href="/#kontakt">Partner werden</ButtonLink>
+              <ButtonLink href="/eventlocation-mieten">Location mieten</ButtonLink>
             </div>
           </div>
         </section>

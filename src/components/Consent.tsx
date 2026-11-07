@@ -21,13 +21,17 @@ export const openConsent = () => window.dispatchEvent(new Event(OPEN_EVENT));
 
 export default function Consent({ gaId }: { gaId?: string }) {
   const [choice, setChoice] = useState<Choice | null>(null);
-  const [show, setShow] = useState(false);
+  // true auf dem Server: der Hinweis steht sofort im HTML. Wer schon gewählt hat, sieht ihn dank data-consent nie.
+  const [show, setShow] = useState(true);
 
   useEffect(() => {
     const c = read();
     setChoice(c);
     setShow(c === null);
-    const reopen = () => setShow(true);
+    const reopen = () => {
+      document.documentElement.removeAttribute("data-consent");
+      setShow(true);
+    };
     window.addEventListener(OPEN_EVENT, reopen);
     return () => window.removeEventListener(OPEN_EVENT, reopen);
   }, []);
@@ -36,6 +40,7 @@ export default function Consent({ gaId }: { gaId?: string }) {
     try {
       localStorage.setItem(KEY, c);
     } catch {}
+    document.documentElement.setAttribute("data-consent", c);
     const wasGranted = choice === "granted";
     setChoice(c);
     setShow(false);
@@ -66,6 +71,7 @@ export default function Consent({ gaId }: { gaId?: string }) {
       {show && (
         <div
           role="dialog"
+          data-consent-banner
           aria-label="Cookie-Einstellungen"
           className="fixed inset-x-0 bottom-0 z-[9999] border-t border-border bg-card/98 backdrop-blur-sm md:inset-x-auto md:bottom-6 md:left-6 md:max-w-md md:border"
         >
