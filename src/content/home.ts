@@ -30,6 +30,7 @@ export const coworking = {
     "15 Plätze",
   ],
   cta: "Anfrage senden",
+  pageCta: "Mehr zum Coworking",
 };
 
 export const hall = {
@@ -79,7 +80,7 @@ export const faq = {
     },
     {
       q: "Wie funktioniert das Coworking in der CHURCH.?",
-      a: "Im Obergeschoss gibt es 15 voll ausgestattete Arbeitsplätze auf rund 170 m² mit Highspeed-WLAN, Küche und Sanitärräumen. Die CHURCH. ist kein offener Coworking-Space: Neue Mitglieder werden von der bestehenden Gemeinschaft eingeladen.",
+      a: "Im Obergeschoss gibt es 15 voll ausgestattete Arbeitsplätze auf rund 170 m² mit Highspeed-WLAN, Küche und Sanitärräumen. Die CHURCH. ist kein offener Coworking-Space: Neue Mitglieder werden von der bestehenden Gemeinschaft eingeladen. Mehr dazu auf der Seite „Coworking Mannheim“.",
     },
     {
       q: "Gibt es Parkplätze?",
