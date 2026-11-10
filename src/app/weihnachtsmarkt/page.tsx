@@ -7,8 +7,8 @@ import hallImg from "@/assets/church-hall-entrance.jpg";
 import glassImg from "@/assets/church-stained-glass.jpg";
 import planImg from "@/assets/weihnachtsmarkt-standplan.jpg";
 import Footer from "@/components/Footer";
-import Baubles from "@/components/xmas/Baubles";
 import ExhibitorForm from "@/components/xmas/ExhibitorForm";
+import NeonSign from "@/components/xmas/NeonSign";
 import Snow from "@/components/xmas/Snow";
 import { site } from "@/content/site";
 import { xmas } from "@/content/weihnachtsmarkt";
@@ -40,13 +40,15 @@ export default function ChristmasMarketPage() {
         <Image src={hallImg} alt="Kirchenraum der CHURCH. Mannheim" fill priority placeholder="blur" sizes="100vw" className="object-cover opacity-45" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(20,41,29,0.35)_0%,rgba(20,41,29,0.92)_70%)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#14291d]/60 via-transparent to-[#14291d]" />
-        <Baubles />
         <div className="relative z-10 flex min-h-[92svh] flex-col items-center justify-center px-6 py-28 text-center">
-          <Link href="/" className="mb-12 font-display text-4xl font-bold tracking-tight text-[#f6efe0] hover:text-[#d9c38a] md:text-5xl">{site.name}</Link>
+          <Link href="/" className="mb-14 md:mb-20 font-display text-4xl font-bold tracking-tight text-[#f6efe0] hover:text-[#d9c38a] md:text-5xl">{site.name}</Link>
+          <div className="mb-14 w-full md:mb-16">
+            <NeonSign />
+          </div>
           <p className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-[#d9c38a]">
             <Star className="h-3 w-3" /> {xmas.hero.eyebrow} <Star className="h-3 w-3" />
           </p>
-          <h1 className="font-xmas mt-6 max-w-4xl text-balance text-5xl leading-[1.05] text-[#f6efe0] md:text-7xl lg:text-8xl">
+          <h1 className="font-xmas mt-6 max-w-4xl text-balance text-4xl leading-[1.05] text-[#f6efe0] md:text-6xl">
             <span className="italic">A Christmas Market</span>
             <br />
             <span className="font-bold text-[#d9c38a]">at CHURCH.</span>
