@@ -114,38 +114,15 @@ html[data-consent] [data-consent-banner] { display: none; }
   from { transform: translateX(calc(var(--sway) * -1)); }
   to { transform: translateX(var(--sway)); }
 }
-.font-neon { font-family: "Yellowtail", cursive; }
-.neon-pink {
-  color: #fff4fa;
-  text-shadow:
-    0 0 2px #fff,
-    0 0 6px #ffd1e8,
-    0 0 14px #ff5fae,
-    0 0 28px #ff2e93,
-    0 0 48px #ff2e93,
-    0 0 80px rgba(255, 46, 147, 0.6);
+.xmas-bauble {
+  transform-origin: 50% 0;
+  animation: xmas-swing 5s ease-in-out infinite alternate;
 }
-.neon-gold {
-  color: #fff6dc;
-  text-shadow: 0 0 2px #fff, 0 0 8px #ffd27a, 0 0 18px #f0b03a, 0 0 34px rgba(240, 176, 58, 0.7);
-}
-.neon-gold-stroke {
-  stroke: #fff3d1;
-  filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 6px #ffcf6b) drop-shadow(0 0 14px #f0b03a);
-}
-.neon-sign { animation: neon-hum 6s ease-in-out infinite; }
-@keyframes neon-hum {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.94; }
-}
-.neon-flicker-a { animation: neon-flicker 7s linear infinite; }
-.neon-flicker-b { animation: neon-flicker 11s linear infinite 2s; }
-.neon-flicker-c { animation: neon-flicker 9s linear infinite 4s; }
-@keyframes neon-flicker {
-  0%, 92%, 94.5%, 97%, 100% { opacity: 1; }
-  93%, 96% { opacity: 0.25; text-shadow: none; filter: none; }
+@keyframes xmas-swing {
+  from { transform: rotate(-2.5deg); }
+  to { transform: rotate(2.5deg); }
 }
 @media (prefers-reduced-motion: reduce) {
   .xmas-snow { display: none; }
-  .neon-sign, .neon-flicker-a, .neon-flicker-b, .neon-flicker-c { animation: none; }
+  .xmas-bauble { animation: none; }
 }
