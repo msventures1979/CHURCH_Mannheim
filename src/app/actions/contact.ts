@@ -19,7 +19,8 @@ const schema = z.object({
   name: z.string().trim().min(1, "Bitte gib deinen Namen ein.").max(100),
   email: z.string().trim().max(255).email("Bitte gib eine gültige E-Mail-Adresse ein."),
   phone: z.string().trim().max(30).optional().default(""),
-  interest: z.enum(contact.interests as unknown as [string, ...string[]]).catch("Sonstiges"),
+  // Zusätzlich erlaubte Themen von Unterseiten, die nicht im Startseiten-Formular stehen
+  interest: z.enum([...contact.interests, "Weihnachtsmarkt-Aussteller"] as unknown as [string, ...string[]]).catch("Sonstiges"),
   message: z.string().trim().max(2000).optional().default(""),
   newsletter: z.literal("on").optional(),
   // Zusatzfelder der Seite „Eventlocation mieten“
