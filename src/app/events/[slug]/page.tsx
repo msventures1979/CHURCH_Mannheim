@@ -302,22 +302,23 @@ export default async function EventDetailPage({ params }: Props) {
           </div>
         )}
 
-        <section className="section-padding border-t border-border bg-card">
-          <div className="mx-auto max-w-4xl text-center">
-            <h2 className="text-balance font-display text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              Selbst ein Event in der CHURCH. planen?
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
-              Den Kirchenraum mit Designküche kannst du für Firmenevents, Dinner, Workshops und Pop-ups mieten.
-            </p>
-            <div className="mt-10">
-              <Link href="/eventlocation-mieten" className="inline-block border border-foreground px-8 py-3 text-sm uppercase tracking-widest text-foreground transition-colors duration-300 hover:bg-foreground hover:text-background">
-                Location mieten
-              </Link>
-            </div>
-          </div>
-        </section>
       </main>
+
+      <section className="section-padding border-t border-border bg-card">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-balance font-display text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            Selbst ein Event in der CHURCH. planen?
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
+            Den Kirchenraum mit Designküche kannst du für Firmenevents, Dinner, Workshops und Pop-ups mieten.
+          </p>
+          <div className="mt-10">
+            <Link href="/eventlocation-mieten" className="inline-block border border-foreground px-8 py-3 text-sm uppercase tracking-widest text-foreground transition-colors duration-300 hover:bg-foreground hover:text-background">
+              Location mieten
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {!isSoldOut && (
         <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-border bg-card px-4 py-3 md:hidden">
