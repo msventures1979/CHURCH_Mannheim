@@ -46,6 +46,22 @@ export const xmas = {
   // Zusätzliche Empfänger:innen für Anmeldungen (neben info@)
   notifyAlso: ["kiss.mi@web.de"],
   contactPerson: { name: "Mirka Kissel-Storch", phone: "+49 178 4881428", phoneHref: "tel:+491784881428", email: "kiss.mi@web.de" },
+  // Bestätigungsmail an Aussteller:innen. {vorname} wird automatisch ersetzt.
+  confirmation: {
+    subject: "Danke für dein Interesse – A Christmas Market at CHURCH.",
+    greeting: "Hallo {vorname},",
+    greetingWithoutName: "Hallo,",
+    paragraphs: [
+      "wie schön, dass du beim Weihnachtsmarkt in der CHURCH. dabei sein möchtest! Dein Interesse ist bei uns angekommen.",
+      "Wir sammeln gerade alle Rückmeldungen und stellen eine bunte Mischung aus maximal 15 Ständen zusammen – Fashion, Design, Handmade, Food und Drinks. Sobald der Termin feststeht, melden wir uns bei dir mit allen Details zu Stand, Kosten und Ablauf.",
+      "Bei Fragen erreichst du Mirka direkt unter +49 178 4881428 oder per Antwort auf diese Mail.",
+    ],
+    closing: "Let's make this Christmas special!",
+    team: "Mirka & das CHURCH. Team",
+    replyTo: "kiss.mi@web.de",
+    footer:
+      "Du erhältst diese E-Mail, weil über church-mannheim.com Interesse am Weihnachtsmarkt mit deiner Adresse gemeldet wurde. Warst das nicht du? Dann kannst du diese Nachricht einfach ignorieren.",
+  },
   form: {
     eyebrow: "Interesse melden",
     headline: "Let's make this Christmas special!",
@@ -53,6 +69,6 @@ export const xmas = {
     categoryOptions: ["Fashion & Accessoires", "Design & Interior", "Kunst & Handmade", "DIY-Aktion", "Food", "Drinks", "Sonstiges"],
     submit: "Interesse senden",
     successTitle: "Danke – wir freuen uns!",
-    successText: "Deine Anmeldung ist angekommen. Wir melden uns in den nächsten Tagen mit allen Details.",
+    successText: "Dein Interesse ist bei uns angekommen – eine Bestätigung liegt schon in deinem Postfach. Wir melden uns mit allen Details.",
   },
 };

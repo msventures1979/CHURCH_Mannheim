@@ -5,6 +5,7 @@ import { contact } from "@/content/home";
 import { xmas } from "@/content/weihnachtsmarkt";
 import { confirmationMail } from "@/content/mails";
 import { buildConfirmationMail } from "@/lib/confirmation-mail";
+import { buildXmasConfirmationMail } from "@/lib/xmas-confirmation-mail";
 import { escapeHtml, getResend } from "@/lib/mail";
 import { startNewsletterSubscription } from "@/lib/newsletter";
 import { getRequestMeta } from "@/lib/request-meta";
@@ -146,11 +147,14 @@ export async function submitContact(_prev: ContactState, formData: FormData): Pr
 
     // Bestätigung an den Absender (nur wenn eingeschaltet und die Anfrage gespeichert oder gemeldet wurde)
     if (confirmationMail.enabled && (stored || mailed)) {
-      const c = buildConfirmationMail({ name: data.name, interest: data.interest });
+      const isXmas = data.interest === "Weihnachtsmarkt-Aussteller";
+      const c = isXmas
+        ? buildXmasConfirmationMail({ name: data.name })
+        : { ...buildConfirmationMail({ name: data.name, interest: data.interest }), replyTo: to.split(",")[0].trim() };
       const { error: cErr } = await resend.emails.send({
         from,
         to: data.email,
-        replyTo: to.split(",")[0].trim(),
+        replyTo: c.replyTo,
         subject: c.subject,
         html: c.html,
         text: c.text,
