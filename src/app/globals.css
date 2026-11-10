@@ -84,3 +84,31 @@
 
 /* Cookie-Hinweis wird serverseitig ausgeliefert (früher sichtbar), bei vorhandener Wahl vor dem ersten Zeichnen ausgeblendet */
 html[data-consent] [data-consent-banner] { display: none; }
+
+/* Weihnachtsmarkt-Seite */
+.font-xmas { font-family: "Playfair Display", Georgia, serif; }
+.xmas-snow span {
+  position: absolute;
+  top: -10px;
+  border-radius: 9999px;
+  background: #fff;
+  filter: blur(0.5px);
+  animation-name: xmas-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes xmas-fall {
+  to { transform: translate3d(var(--drift), 110vh, 0); }
+}
+.xmas-bulb {
+  box-shadow: 0 0 10px 2px currentColor;
+  animation: xmas-twinkle 2.4s ease-in-out infinite;
+}
+@keyframes xmas-twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .xmas-snow { display: none; }
+  .xmas-bulb { animation: none; }
+}
