@@ -11,7 +11,7 @@ export const revalidate = 3600;
 
 const title = "Events in der CHURCH. — Yoga, Dinners & Kultur in Mannheim";
 const description =
-  "Entdecke Events in der CHURCH. Mannheim: WineYoga, Pop-up Dinners, Kulturabende und mehr im historischen Kirchenraum im Turley-Quartier.";
+  "Entdecke Events in der CHURCH. Mannheim: WineYoga, Pilates, Feminine Flow, Pop-ups und mehr im historischen Kirchenraum im Turley-Quartier.";
 
 export const metadata: Metadata = {
   title,

@@ -4,6 +4,10 @@ import wineyogaHero from "@/assets/wineyoga-hero.jpg";
 import wineyogaCard from "@/assets/wineyoga-card.jpg";
 import dipolHero from "@/assets/dipol-popup-hero.jpg";
 import dipolCard from "@/assets/dipol-popup-card.jpg";
+import feminineFlowHero from "@/assets/feminine-flow-hero.jpg";
+import feminineFlowCard from "@/assets/feminine-flow-card.jpg";
+import pilatesMenemenHero from "@/assets/pilates-menemen-hero.jpg";
+import pilatesMenemenCard from "@/assets/pilates-menemen-card.jpg";
 
 export interface TimelineStep {
   title: string;
@@ -56,6 +60,60 @@ export const eventSeries: EventSeries[] = [
     partnerId: "sophie-fitz",
     heroImage: wineyogaHero,
     cardImage: wineyogaCard,
+  },
+  {
+    seriesId: "feminine-flow",
+    title: "Feminine Flow",
+    subtitle: "mit Dilan & Aylin",
+    categories: ["Yoga", "Tanz", "Women"],
+    shortDescription:
+      "Deep Yoga Stretch, Belly Dance Workshop, Healthy Shots und Sisterhood – ein Nachmittag für Frauen im historischen Kirchenraum.",
+    longDescription: [
+      "Ein Tag, um dich weich, sinnlich und lebendig zu fühlen: Bei Feminine Flow kommen wir im Kirchenraum der CHURCH. zusammen, um uns zu dehnen, zu tanzen, zu lachen und der eigenen Weiblichkeit Raum zu geben.",
+      "Mit Deep Yoga Stretch mit Dilan starten wir auf der Matte und bringen Bewegung in die Hüften. Danach führt dich Aylin im Belly Dance Workshop zu ersten Bewegungen und neuen Rhythmen – ganz ohne Leistungsdruck. Dazu gibt es frische Healthy Shots, Zeit für echte Connection und eine Goodie Bag zum Mitnehmen.",
+    ],
+    timeline: [
+      { title: "Deep Yoga Stretch", description: "Wohltuendes Dehnen auf der Matte mit Dilan" },
+      { title: "Belly Dance Workshop", description: "Erste Bewegungen und Rhythmen mit Aylin – ganz ohne Vorkenntnisse" },
+      { title: "Healthy Shots", description: "Frisch zubereitete Shots für dein Wohlbefinden" },
+      { title: "Sisterhood", description: "Zeit für Gespräche und Connection – und eine Goodie Bag zum Mitnehmen" },
+    ],
+    infos: [
+      { label: "Für wen", value: "Für Frauen, keine Vorkenntnisse nötig" },
+      { label: "Inklusive", value: "Healthy Shots und Goodie Bag" },
+      { label: "Tickets", value: "Über Eventbrite" },
+      { label: "Parken", value: "16 kostenlose Stellplätze an der CHURCH." },
+    ],
+    partnerId: "yoga-dilan",
+    heroImage: feminineFlowHero,
+    cardImage: feminineFlowCard,
+  },
+  {
+    seriesId: "pilates-menemen",
+    title: "Pilates & Menemen",
+    subtitle: "mit Dilan · Female Community Table",
+    categories: ["Pilates", "Brunch", "Women"],
+    shortDescription:
+      "Matten-Pilates für alle Level, danach türkischer Brunch an der langen Tafel – mit Female Talk zum Thema Aktien und Goodie Bag.",
+    longDescription: [
+      "Erst auf die Matte, dann an die lange Tafel: Bei Pilates & Menemen starten wir im Kirchenraum der CHURCH. mit einer gemeinsamen Matten-Pilates-Session – egal, ob du zum ersten Mal dabei bist oder regelmäßig trainierst.",
+      "Danach gibt es türkischen Brunch mit frisch zubereitetem Menemen, Simit und Çay. Beim Female Talk erklärt Abigal Orban (@finanzen_ao), wie du mit dem Investieren in Aktien anfangen kannst; weitere Speakerinnen folgen. Und es bleibt genug Zeit zum Quatschen.",
+    ],
+    timeline: [
+      { title: "Pilates", description: "Matten-Pilates für alle Level mit Dilan" },
+      { title: "Türkischer Brunch", description: "Menemen, Simit, Çay und mehr an einer langen Tafel" },
+      { title: "Female Talk", description: "Einstieg ins Investieren in Aktien mit Abigal Orban und weitere Speakerinnen" },
+      { title: "Goodie Bag", description: "Zum Mitnehmen für jede Teilnehmerin" },
+    ],
+    infos: [
+      { label: "Für wen", value: "Für Frauen, Pilates für alle Level" },
+      { label: "Inklusive", value: "Brunch, Female Talk und Goodie Bag" },
+      { label: "Tickets", value: "Über Eventbrite" },
+      { label: "Parken", value: "16 kostenlose Stellplätze an der CHURCH." },
+    ],
+    partnerId: "yoga-dilan",
+    heroImage: pilatesMenemenHero,
+    cardImage: pilatesMenemenCard,
   },
   {
     seriesId: "copenhagen-catch-up",

@@ -9,6 +9,7 @@ export interface EventDate {
   date: string; // YYYY-MM-DD
   endDate?: string; // YYYY-MM-DD, nur bei Zeiträumen (z. B. Pop-up)
   time: string;
+  endTime?: string; // "HH:MM", wenn das Ende nicht nach 2,5 Std. ist
   duration: string;
   price: string;
   status: EventStatus;
@@ -47,6 +48,28 @@ export const events: EventDate[] = [
     price: "54 € pro Person",
     status: "available",
     ticketLink: `https://wineyoga.de/produkt/wineyoga-05-12-2026-1700/${WINEYOGA_UTM}`,
+  },
+  {
+    slug: "feminine-flow-november-2026",
+    seriesId: "feminine-flow",
+    date: "2026-11-29",
+    time: "13:00 Uhr",
+    endTime: "15:30",
+    duration: "ca. 2,5 Std.",
+    price: "44 € pro Person",
+    status: "available",
+    ticketLink: "https://www.eventbrite.com/e/feminine-flow-deep-yoga-stretch-belly-dance-workshop-mannheim-tickets-2003789309766",
+  },
+  {
+    slug: "pilates-menemen-dezember-2026",
+    seriesId: "pilates-menemen",
+    date: "2026-12-13",
+    time: "10:00 Uhr",
+    endTime: "13:30",
+    duration: "ca. 3,5 Std.",
+    price: "55 € pro Person",
+    status: "available",
+    ticketLink: "https://www.eventbrite.com/e/pilates-menemen-turkischer-brunch-female-community-table-mannheim-tickets-2004614331428",
   },
   {
     slug: "copenhagen-catch-up-2026",
@@ -97,7 +120,9 @@ export function eventSchedule(e: EventDate) {
   const endMinutes = Number(hh) * 60 + Number(mm) + 150;
   const end = e.endDate
     ? `${e.endDate}T18:00:00${berlinOffset(e.endDate)}`
-    : `${e.date}T${pad(Math.floor(endMinutes / 60))}:${pad(endMinutes % 60)}:00${berlinOffset(e.date)}`;
+    : e.endTime
+      ? `${e.date}T${e.endTime}:00${berlinOffset(e.date)}`
+      : `${e.date}T${pad(Math.floor(endMinutes / 60))}:${pad(endMinutes % 60)}:00${berlinOffset(e.date)}`;
   return { start, end };
 }
 

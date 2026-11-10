@@ -20,6 +20,13 @@ export const partners: Partner[] = [
     type: "Person",
   },
   {
+    id: "yoga-dilan",
+    name: "Dilan Ückan",
+    role: "Yoga, Pilates & Sound Bath · Yoga Dilan",
+    website: "https://yoga-dilan.de",
+    type: "Person",
+  },
+  {
     id: "dipol",
     name: "DIPOL",
     role: "Mode-Kurator · Pop-up Copenhagen Catch Up",
