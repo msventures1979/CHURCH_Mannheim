@@ -65,7 +65,7 @@ export default function ChristmasMarketPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#14291d]/60 via-transparent to-[#14291d]" />
         <Lights />
         <div className="relative z-10 flex min-h-[92svh] flex-col items-center justify-center px-6 py-28 text-center">
-          <Link href="/" className="mb-10 font-display text-lg font-bold tracking-tight text-[#f6efe0]/80 hover:text-[#f6efe0]">{site.name}</Link>
+          <Link href="/" className="mb-12 font-display text-4xl font-bold tracking-tight text-[#f6efe0] hover:text-[#d9c38a] md:text-5xl">{site.name}</Link>
           <p className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-[#d9c38a]">
             <Star className="h-3 w-3" /> {xmas.hero.eyebrow} <Star className="h-3 w-3" />
           </p>
