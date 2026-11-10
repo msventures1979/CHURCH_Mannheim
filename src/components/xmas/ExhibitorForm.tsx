@@ -6,10 +6,10 @@ import { xmas } from "@/content/weihnachtsmarkt";
 
 const { form, dates } = xmas;
 const fieldCls =
-  "w-full border-b border-[#d9c38a]/40 bg-transparent py-3 text-[#f6efe0] placeholder:text-[#f6efe0]/40 transition-colors focus:border-[#d9c38a] focus:outline-none";
-const labelCls = "mb-2 block text-sm tracking-wide text-[#f6efe0]/70";
+  "w-full border-b border-[#f6efe0]/25 bg-transparent py-3 text-[#f6efe0] placeholder:text-[#f6efe0]/35 transition-colors focus:border-[#ff2e93] focus:outline-none";
+const labelCls = "font-mono-x mb-2 block text-[11px] uppercase tracking-[0.2em] text-[#e9c46a]";
 const chipCls =
-  "flex cursor-pointer items-center gap-2 rounded-full border border-[#d9c38a]/40 px-4 py-2 text-sm text-[#f6efe0]/85 transition-colors has-[:checked]:border-[#d9c38a] has-[:checked]:bg-[#d9c38a] has-[:checked]:text-[#14291d]";
+  "font-mono-x flex cursor-pointer items-center gap-2 border border-[#f6efe0]/25 px-4 py-2 text-sm uppercase tracking-wider text-[#f6efe0]/85 transition-colors hover:border-[#f6efe0]/60 has-[:checked]:border-[#ff2e93] has-[:checked]:bg-[#ff2e93] has-[:checked]:text-[#06100b] has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-[#e9c46a]";
 
 // Aussteller-Anfrage: die Zusatzfelder werden zu einer Nachricht gebündelt und über das normale Kontakt-Backend gespeichert.
 export default function ExhibitorForm() {
@@ -21,8 +21,8 @@ export default function ExhibitorForm() {
 
   if (state.status === "success") {
     return (
-      <div className="rounded-2xl border border-[#d9c38a]/50 bg-[#0d2016]/70 p-8 text-center md:p-12" role="status">
-        <p className="font-xmas text-4xl italic text-[#d9c38a]">{form.successTitle}</p>
+      <div className="border border-[#ff2e93]/60 bg-[#06100b] p-8 md:p-12" role="status">
+        <p className="font-anton text-4xl uppercase text-[#f6efe0] md:text-5xl">{form.successTitle}</p>
         <p className="mt-4 text-base leading-relaxed text-[#f6efe0]/80">{form.successText}</p>
       </div>
     );
@@ -44,7 +44,7 @@ export default function ExhibitorForm() {
         fd.set("message", `${lines.join("\n")}${about ? `\n\nAngebot:\n${about}` : ""}`);
         startTransition(() => action(fd));
       }}
-      className="grid grid-cols-1 gap-7 rounded-2xl border border-[#d9c38a]/30 bg-[#0d2016]/70 p-6 backdrop-blur-sm md:grid-cols-2 md:p-10"
+      className="relative grid grid-cols-1 gap-7 border border-[#f6efe0]/15 bg-[#06100b]/80 p-6 backdrop-blur-sm md:grid-cols-2 md:p-10"
       noValidate
     >
       <input type="hidden" name="t" value={startedAt} />
@@ -60,7 +60,7 @@ export default function ExhibitorForm() {
       </div>
       <div>
         <label htmlFor="xm-category" className={labelCls}>Kategorie</label>
-        <select id="xm-category" name="category" defaultValue="" className={`${fieldCls} [&>option]:bg-[#14291d]`}>
+        <select id="xm-category" name="category" defaultValue="" className={`${fieldCls} [&>option]:bg-[#06100b]`}>
           <option value="" disabled>Bitte wählen</option>
           {form.categoryOptions.map((c) => <option key={c}>{c}</option>)}
         </select>
@@ -107,16 +107,16 @@ export default function ExhibitorForm() {
 
       <p className="text-xs leading-relaxed text-[#f6efe0]/60 md:col-span-2">
         Wir verwenden deine Angaben nur für die Organisation des Weihnachtsmarkts. Details in der{" "}
-        <a href="/datenschutz" className="underline hover:text-[#d9c38a]">Datenschutzerklärung</a>.
+        <a href="/datenschutz" className="underline hover:text-[#e9c46a]">Datenschutzerklärung</a>.
       </p>
 
       <div className="md:col-span-2">
         <button
           type="submit"
           disabled={pending}
-          className="rounded-full bg-[#b3261e] px-10 py-4 text-sm uppercase tracking-[0.2em] text-[#f6efe0] shadow-[0_0_30px_rgba(179,38,30,0.45)] transition hover:bg-[#c9352c] disabled:opacity-50"
+          className="xh-cta w-full disabled:opacity-50 md:w-auto md:min-w-[320px]"
         >
-          {pending ? "Wird gesendet …" : form.submit}
+          {pending ? "Wird gesendet …" : form.submit} <span aria-hidden>→</span>
         </button>
         <div aria-live="polite" className="mt-3">
           {state.status === "error" && state.message && <p className="text-sm text-[#f2a3a3]">{state.message}</p>}

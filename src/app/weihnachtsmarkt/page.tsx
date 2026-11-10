@@ -1,5 +1,3 @@
-import "@fontsource/playfair-display/400-italic.css";
-import "@fontsource/playfair-display/700.css";
 import type { Metadata } from "next";
 import Image from "next/image";
 import glassImg from "@/assets/church-stained-glass.jpg";
@@ -19,54 +17,72 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: xmas.meta.title, description: xmas.meta.description },
 };
 
-function Star({ className = "" }: { className?: string }) {
+const line = "border-[#f6efe0]/15";
+const wrap = "mx-auto max-w-7xl px-4 md:px-10";
+const h2 = "font-anton text-balance text-5xl uppercase leading-[0.9] text-[#f6efe0] md:text-8xl";
+
+function Label({ children }: { children: React.ReactNode }) {
   return (
-    <svg aria-hidden viewBox="0 0 24 24" className={className} fill="currentColor">
-      <path d="M12 0l2.4 8.6L24 12l-9.6 3.4L12 24l-2.4-8.6L0 12l9.6-3.4z" />
-    </svg>
+    <p className="font-mono-x mb-6 flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-[#e9c46a] md:text-xs">
+      <span aria-hidden className="h-px w-8 bg-[#e9c46a]" />
+      {children}
+    </p>
   );
 }
 
 export default function ChristmasMarketPage() {
   return (
-    <div className="xmas relative flex min-h-screen flex-col bg-[#14291d] text-[#f6efe0]">
+    <div className="xmas relative flex min-h-screen flex-col bg-[#06100b] text-[#f6efe0]">
       <Snow />
-
       <XmasHero />
 
       <main className="relative z-10 flex-1">
-        {/* Intro */}
-        <section className="px-6 py-20 md:px-12 md:py-28">
-          <div className="mx-auto max-w-3xl text-center">
-            <Star className="mx-auto h-6 w-6 text-[#d9c38a]" />
-            <div className="mt-8 space-y-6 text-lg leading-relaxed text-[#f6efe0]/85 md:text-xl">
+        {/* Konzept */}
+        <section className={`border-t ${line} py-20 md:py-32`}>
+          <div className={`${wrap} grid grid-cols-1 gap-12 lg:grid-cols-12`}>
+            <div className="lg:col-span-6">
+              <Label>Das Konzept</Label>
+              <h2 className="font-anton text-5xl uppercase leading-[0.9] text-[#f6efe0] md:text-7xl">
+                Mehr als ein
+                <br />
+                <span className="text-transparent [-webkit-text-stroke:2px_#f6efe0]">Weihnachtsmarkt.</span>
+              </h2>
+            </div>
+            <div className="space-y-6 text-lg leading-relaxed text-[#f6efe0]/80 lg:col-span-6 lg:col-start-7 md:text-xl lg:pt-10">
               {xmas.intro.map((p) => <p key={p.slice(0, 20)}>{p}</p>)}
             </div>
-            <dl className="mt-14 grid grid-cols-3 gap-4 border-y border-[#d9c38a]/25 py-8">
-              {xmas.facts.map((f) => (
-                <div key={f.label}>
+          </div>
+          <dl className={`${wrap} mt-16 md:mt-24`}>
+            <div className={`grid grid-cols-3 border ${line}`}>
+              {xmas.facts.map((f, i) => (
+                <div key={f.label} className={`px-3 py-6 md:px-8 md:py-10 ${i ? `border-l ${line}` : ""}`}>
                   <dt className="sr-only">{f.label}</dt>
                   <dd>
-                    <span className="font-xmas block whitespace-nowrap text-2xl font-bold text-[#d9c38a] sm:text-3xl md:text-4xl">{f.value}</span>
-                    <span className="mt-1 block text-[11px] uppercase tracking-widest text-[#f6efe0]/60">{f.label}</span>
+                    <span className="font-anton block whitespace-nowrap text-3xl uppercase text-[#e9c46a] sm:text-5xl md:text-7xl">{f.value}</span>
+                    <span className="font-mono-x mt-2 block text-[10px] uppercase tracking-[0.2em] text-[#f6efe0]/60 md:text-xs">{f.label}</span>
                   </dd>
                 </div>
               ))}
-            </dl>
-          </div>
+            </div>
+          </dl>
         </section>
 
-        {/* Kategorien */}
-        <section className="bg-[#0f2117] px-6 py-20 md:px-12 md:py-28">
-          <div className="mx-auto max-w-6xl">
-            <h2 className="font-xmas text-center text-4xl italic text-[#f6efe0] md:text-6xl">{xmas.categories.headline}</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-center text-[#f6efe0]/70">{xmas.categories.text}</p>
-            <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {xmas.categories.items.map((c, i) => (
-                <div key={c.title} className="rounded-2xl border border-[#d9c38a]/25 bg-[#14291d] p-7 transition hover:border-[#d9c38a]/60">
-                  <span className="font-xmas text-sm italic text-[#c9352c]">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="font-xmas mt-2 text-2xl font-bold text-[#d9c38a]">{c.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#f6efe0]/75">{c.text}</p>
+        {/* Wen wir suchen */}
+        <section className={`border-t ${line} py-20 md:py-32`}>
+          <div className={wrap}>
+            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+              <div>
+                <Label>Aussteller:innen</Label>
+                <h2 className={h2}>{xmas.categories.headline}</h2>
+              </div>
+              <p className="max-w-md text-[#f6efe0]/70 md:text-right">{xmas.categories.text}</p>
+            </div>
+            <div className={`mt-14 grid grid-cols-1 gap-px border ${line} bg-[#f6efe0]/15 sm:grid-cols-2 lg:grid-cols-3`}>
+              {xmas.categories.items.map((c) => (
+                <div key={c.title} className="group bg-[#06100b] p-7 transition-colors hover:bg-[#0d1d14] md:p-9">
+                  <span aria-hidden className="font-mono-x text-lg text-[#ff2e93] transition group-hover:[text-shadow:0_0_12px_#ff2e93]">+</span>
+                  <h3 className="font-anton mt-3 text-3xl uppercase leading-none text-[#f6efe0]">{c.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[#f6efe0]/70">{c.text}</p>
                 </div>
               ))}
             </div>
@@ -74,51 +90,62 @@ export default function ChristmasMarketPage() {
         </section>
 
         {/* Termine */}
-        <section className="relative overflow-hidden px-6 py-20 md:px-12 md:py-28">
-          <Image src={glassImg} alt="" fill sizes="100vw" className="object-cover opacity-20" />
-          <div className="absolute inset-0 bg-[#14291d]/70" />
-          <div className="relative mx-auto max-w-4xl text-center">
-            <h2 className="font-xmas text-4xl italic md:text-6xl">{xmas.dates.headline}</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-[#f6efe0]/75">{xmas.dates.text}</p>
-            <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
-              {xmas.dates.options.map((d) => (
-                <div key={d} className="rounded-2xl border border-[#d9c38a]/40 bg-[#14291d]/80 px-4 py-6">
-                  <span className="font-xmas whitespace-nowrap text-xl font-bold text-[#d9c38a] sm:text-2xl md:text-3xl">{d}</span>
-                </div>
-              ))}
-            </div>
+        <section className={`relative overflow-hidden border-t ${line} py-20 md:py-32`}>
+          <Image src={glassImg} alt="" fill sizes="100vw" className="object-cover opacity-20 [filter:grayscale(1)_contrast(1.4)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#06100b] via-[#06100b]/70 to-[#06100b]" />
+          <div className={`relative ${wrap}`}>
+            <Label>Dezember 2026</Label>
+            <h2 className={h2}>{xmas.dates.headline}</h2>
+            <p className="mt-6 max-w-2xl text-[#f6efe0]/75">{xmas.dates.text}</p>
+            <ul className={`mt-12 grid grid-cols-2 border ${line} md:grid-cols-4`}>
+              {xmas.dates.options.map((d, i) => {
+                const [day, date] = d.split(" ");
+                return (
+                  <li
+                    key={d}
+                    className={`bg-[#06100b]/70 px-4 py-6 text-center md:py-10 ${i % 2 ? `border-l ${line}` : ""} ${i > 1 ? `border-t ${line} md:border-t-0` : ""} ${i === 2 ? `md:border-l` : ""}`}
+                  >
+                    <span className="font-mono-x block text-xs uppercase tracking-[0.25em] text-[#e9c46a]">{day.replace(".", "")}</span>
+                    <span className="font-anton mt-1 block text-4xl md:text-6xl">{date}</span>
+                  </li>
+                );
+              })}
+            </ul>
             <a
               href={xmas.plan.href}
               target="_blank"
               rel="noopener"
-              className="group mx-auto mt-10 flex max-w-md items-center gap-5 rounded-2xl border border-[#d9c38a]/30 bg-[#14291d]/80 p-4 text-left transition hover:border-[#d9c38a]/70"
+              className={`group mt-8 flex max-w-xl items-center gap-5 border ${line} bg-[#06100b]/80 p-4 transition hover:border-[#e9c46a]`}
             >
-              <span className="relative block h-20 w-14 shrink-0 overflow-hidden rounded-md bg-[#f6efe0]">
+              <span className="relative block h-20 w-14 shrink-0 overflow-hidden bg-[#f6efe0]">
                 <Image src={planImg} alt="Standplan Erdgeschoss" fill sizes="56px" className="object-cover object-top" />
               </span>
               <span>
                 <span className="block text-sm text-[#f6efe0]/75">{xmas.plan.text}</span>
-                <span className="mt-1 block text-sm uppercase tracking-[0.2em] text-[#d9c38a] group-hover:underline">{xmas.plan.link} ↗</span>
+                <span className="font-mono-x mt-1 block text-xs uppercase tracking-[0.2em] text-[#e9c46a] group-hover:underline">{xmas.plan.link} ↗</span>
               </span>
             </a>
           </div>
         </section>
 
         {/* Anmeldung */}
-        <section id="anmeldung" className="scroll-mt-10 px-6 py-20 md:px-12 md:py-28">
-          <div className="mx-auto max-w-3xl">
-            <p className="text-center text-xs uppercase tracking-[0.35em] text-[#d9c38a]">{xmas.form.eyebrow}</p>
-            <h2 className="font-xmas mt-4 text-balance text-center text-4xl italic md:text-6xl">{xmas.form.headline}</h2>
-            <p className="mx-auto mb-12 mt-4 max-w-xl text-center text-[#f6efe0]/75">{xmas.form.text}</p>
-            <ExhibitorForm />
-            <div className="mt-10 text-center">
-              <p className="text-xs uppercase tracking-[0.3em] text-[#d9c38a]">Deine Ansprechpartnerin</p>
-              <p className="font-xmas mt-3 text-2xl text-[#f6efe0]">{xmas.contactPerson.name}</p>
-              <p className="mt-2 text-sm text-[#f6efe0]/75">
-                <a href={xmas.contactPerson.phoneHref} className="text-[#d9c38a] hover:underline">{xmas.contactPerson.phone}</a>
-                <span className="mx-2 text-[#f6efe0]/40">·</span>
-                <a href={`mailto:${xmas.contactPerson.email}`} className="text-[#d9c38a] hover:underline">{xmas.contactPerson.email}</a>
-              </p>
+        <section id="anmeldung" className={`scroll-mt-6 border-t ${line} py-20 md:py-32`}>
+          <div className={`${wrap} grid grid-cols-1 gap-12 lg:grid-cols-12`}>
+            <div className="lg:col-span-5">
+              <Label>{xmas.form.eyebrow}</Label>
+              <h2 className="xh-neon-text font-neon-x text-6xl leading-[1.05] md:text-7xl">{xmas.form.headline}</h2>
+              <p className="mt-8 max-w-md text-[#f6efe0]/75">{xmas.form.text}</p>
+              <div className={`mt-12 border-t ${line} pt-6`}>
+                <p className="font-mono-x text-[11px] uppercase tracking-[0.25em] text-[#e9c46a]">Deine Ansprechpartnerin</p>
+                <p className="font-anton mt-3 text-3xl uppercase">{xmas.contactPerson.name}</p>
+                <p className="font-mono-x mt-3 space-y-1 text-sm">
+                  <a href={xmas.contactPerson.phoneHref} className="block text-[#f6efe0]/85 hover:text-[#e9c46a]">{xmas.contactPerson.phone}</a>
+                  <a href={`mailto:${xmas.contactPerson.email}`} className="block text-[#f6efe0]/85 hover:text-[#e9c46a]">{xmas.contactPerson.email}</a>
+                </p>
+              </div>
+            </div>
+            <div className="lg:col-span-7">
+              <ExhibitorForm />
             </div>
           </div>
         </section>
