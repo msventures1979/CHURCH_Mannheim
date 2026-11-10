@@ -7,6 +7,7 @@ import hallImg from "@/assets/church-hall-entrance.jpg";
 import glassImg from "@/assets/church-stained-glass.jpg";
 import planImg from "@/assets/weihnachtsmarkt-standplan.jpg";
 import Footer from "@/components/Footer";
+import Baubles from "@/components/xmas/Baubles";
 import ExhibitorForm from "@/components/xmas/ExhibitorForm";
 import Snow from "@/components/xmas/Snow";
 import { site } from "@/content/site";
@@ -19,31 +20,6 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
   openGraph: { title: xmas.meta.title, description: xmas.meta.description, images: [{ url: hallImg.src }] },
 };
-
-const bulbColors = ["#e8b84a", "#c9352c", "#f6efe0", "#3f8f5c", "#e8b84a", "#c9352c"];
-
-function Lights() {
-  return (
-    <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 z-10 h-16 overflow-hidden">
-      <svg className="absolute inset-x-0 top-0 h-10 w-full" preserveAspectRatio="none" viewBox="0 0 100 10">
-        <path d="M0 2 Q 6.25 8 12.5 2 T 25 2 T 37.5 2 T 50 2 T 62.5 2 T 75 2 T 87.5 2 T 100 2" fill="none" stroke="#0b1a12" strokeWidth="0.4" />
-      </svg>
-      <div className="absolute inset-x-0 top-0 flex justify-between px-[1%]">
-        {Array.from({ length: 24 }, (_, i) => {
-          const phase = (i % 4) / 4;
-          const y = 12 + Math.abs(Math.sin((i / 24) * Math.PI * 8)) * 20;
-          return (
-            <span
-              key={i}
-              className="xmas-bulb block h-3.5 w-2.5 rounded-b-full rounded-t-sm"
-              style={{ marginTop: y, background: bulbColors[i % bulbColors.length], color: bulbColors[i % bulbColors.length], animationDelay: `${phase * 2.4}s` }}
-            />
-          );
-        })}
-      </div>
-    </div>
-  );
-}
 
 function Star({ className = "" }: { className?: string }) {
   return (
@@ -63,7 +39,7 @@ export default function ChristmasMarketPage() {
         <Image src={hallImg} alt="Kirchenraum der CHURCH. Mannheim" fill priority placeholder="blur" sizes="100vw" className="object-cover opacity-45" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(20,41,29,0.35)_0%,rgba(20,41,29,0.92)_70%)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#14291d]/60 via-transparent to-[#14291d]" />
-        <Lights />
+        <Baubles />
         <div className="relative z-10 flex min-h-[92svh] flex-col items-center justify-center px-6 py-28 text-center">
           <Link href="/" className="mb-12 font-display text-4xl font-bold tracking-tight text-[#f6efe0] hover:text-[#d9c38a] md:text-5xl">{site.name}</Link>
           <p className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-[#d9c38a]">

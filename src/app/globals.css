@@ -114,15 +114,15 @@ html[data-consent] [data-consent-banner] { display: none; }
   from { transform: translateX(calc(var(--sway) * -1)); }
   to { transform: translateX(var(--sway)); }
 }
-.xmas-bulb {
-  box-shadow: 0 0 10px 2px currentColor;
-  animation: xmas-twinkle 2.4s ease-in-out infinite;
+.xmas-bauble {
+  transform-origin: 50% 0;
+  animation: xmas-swing 5s ease-in-out infinite alternate;
 }
-@keyframes xmas-twinkle {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.35; }
+@keyframes xmas-swing {
+  from { transform: rotate(-2.5deg); }
+  to { transform: rotate(2.5deg); }
 }
 @media (prefers-reduced-motion: reduce) {
   .xmas-snow { display: none; }
-  .xmas-bulb { animation: none; }
+  .xmas-bauble { animation: none; }
 }
