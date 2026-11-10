@@ -33,6 +33,11 @@ export const xmas = {
       { title: "Drinks", text: "Glühwein neu gedacht, Craft, Kaffee, Alkoholfreies." },
     ],
   },
+  plan: {
+    text: "15 Stände à 2 × 2 m im Kirchenraum",
+    link: "Standplan ansehen (PDF)",
+    href: "/weihnachtsmarkt-standplan.pdf",
+  },
   dates: {
     headline: "Mögliche Termine.",
     text: "Einzeln oder als Wochenende – sag uns, wann du dabei sein könntest. Den finalen Termin legen wir nach den Rückmeldungen fest.",

@@ -34,6 +34,8 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },
+      // Standplan der versteckten Weihnachtsmarkt-Seite nicht indexieren
+      { source: "/weihnachtsmarkt-standplan.pdf", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] },
       // Vorschau-URLs nie indexieren
       {
         source: "/:path*",

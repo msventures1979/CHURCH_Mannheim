@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import hallImg from "@/assets/church-hall-entrance.jpg";
 import glassImg from "@/assets/church-stained-glass.jpg";
+import planImg from "@/assets/weihnachtsmarkt-standplan.jpg";
 import Footer from "@/components/Footer";
 import ExhibitorForm from "@/components/xmas/ExhibitorForm";
 import Snow from "@/components/xmas/Snow";
@@ -137,6 +138,20 @@ export default function ChristmasMarketPage() {
                 </div>
               ))}
             </div>
+            <a
+              href={xmas.plan.href}
+              target="_blank"
+              rel="noopener"
+              className="group mx-auto mt-10 flex max-w-md items-center gap-5 rounded-2xl border border-[#d9c38a]/30 bg-[#14291d]/80 p-4 text-left transition hover:border-[#d9c38a]/70"
+            >
+              <span className="relative block h-20 w-14 shrink-0 overflow-hidden rounded-md bg-[#f6efe0]">
+                <Image src={planImg} alt="Standplan Erdgeschoss" fill sizes="56px" className="object-cover object-top" />
+              </span>
+              <span>
+                <span className="block text-sm text-[#f6efe0]/75">{xmas.plan.text}</span>
+                <span className="mt-1 block text-sm uppercase tracking-[0.2em] text-[#d9c38a] group-hover:underline">{xmas.plan.link} ↗</span>
+              </span>
+            </a>
           </div>
         </section>
 
