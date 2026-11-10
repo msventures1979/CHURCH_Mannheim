@@ -87,18 +87,32 @@ html[data-consent] [data-consent-banner] { display: none; }
 
 /* Weihnachtsmarkt-Seite */
 .font-xmas { font-family: "Playfair Display", Georgia, serif; }
-.xmas-snow span {
+.xmas-flake {
   position: absolute;
-  top: -10px;
-  border-radius: 9999px;
-  background: #fff;
-  filter: blur(0.5px);
+  top: -24px;
   animation-name: xmas-fall;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  will-change: transform;
+}
+.xmas-sway {
+  display: block;
+  animation-name: xmas-sway;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.xmas-dot {
+  display: block;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 40% 35%, #fff 0%, rgba(255, 255, 255, 0.9) 45%, rgba(255, 255, 255, 0) 72%);
 }
 @keyframes xmas-fall {
-  to { transform: translate3d(var(--drift), 110vh, 0); }
+  to { transform: translate3d(0, calc(100vh + 48px), 0); }
+}
+@keyframes xmas-sway {
+  from { transform: translateX(calc(var(--sway) * -1)); }
+  to { transform: translateX(var(--sway)); }
 }
 .xmas-bulb {
   box-shadow: 0 0 10px 2px currentColor;
