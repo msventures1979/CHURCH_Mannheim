@@ -2,15 +2,12 @@ import "@fontsource/playfair-display/400-italic.css";
 import "@fontsource/playfair-display/700.css";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import hallImg from "@/assets/church-hall-entrance.jpg";
 import glassImg from "@/assets/church-stained-glass.jpg";
 import planImg from "@/assets/weihnachtsmarkt-standplan.jpg";
 import Footer from "@/components/Footer";
-import Baubles from "@/components/xmas/Baubles";
 import ExhibitorForm from "@/components/xmas/ExhibitorForm";
 import Snow from "@/components/xmas/Snow";
-import { site } from "@/content/site";
+import XmasHero from "@/components/xmas/XmasHero";
 import { xmas } from "@/content/weihnachtsmarkt";
 
 // Versteckt: nicht verlinkt, nicht in der Sitemap, nicht indexierbar.
@@ -35,32 +32,7 @@ export default function ChristmasMarketPage() {
     <div className="xmas relative flex min-h-screen flex-col bg-[#14291d] text-[#f6efe0]">
       <Snow />
 
-      {/* Hero */}
-      <header className="relative min-h-[92svh] overflow-hidden">
-        <Image src={hallImg} alt="Kirchenraum der CHURCH. Mannheim" fill priority placeholder="blur" sizes="100vw" className="object-cover opacity-45" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(20,41,29,0.35)_0%,rgba(20,41,29,0.92)_70%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#14291d]/60 via-transparent to-[#14291d]" />
-        <Baubles />
-        <div className="relative z-10 flex min-h-[92svh] flex-col items-center justify-center px-6 py-28 text-center">
-          <Link href="/" className="mb-12 font-display text-4xl font-bold tracking-tight text-[#f6efe0] hover:text-[#d9c38a] md:text-5xl">{site.name}</Link>
-          <p className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-[#d9c38a]">
-            <Star className="h-3 w-3" /> {xmas.hero.eyebrow} <Star className="h-3 w-3" />
-          </p>
-          <h1 className="font-xmas mt-6 max-w-4xl text-balance text-5xl leading-[1.05] text-[#f6efe0] md:text-7xl lg:text-8xl">
-            <span className="italic">A Christmas Market</span>
-            <br />
-            <span className="font-bold text-[#d9c38a]">at CHURCH.</span>
-          </h1>
-          <p className="mt-6 text-lg text-[#f6efe0]/85 md:text-xl">{xmas.hero.subtitle}</p>
-          <p className="mt-2 text-sm uppercase tracking-[0.25em] text-[#f6efe0]/60">{xmas.hero.dates}</p>
-          <a
-            href="#anmeldung"
-            className="mt-12 rounded-full bg-[#b3261e] px-10 py-4 text-sm uppercase tracking-[0.2em] text-[#f6efe0] shadow-[0_0_40px_rgba(179,38,30,0.5)] transition hover:bg-[#c9352c]"
-          >
-            {xmas.hero.cta}
-          </a>
-        </div>
-      </header>
+      <XmasHero />
 
       <main className="relative z-10 flex-1">
         {/* Intro */}
