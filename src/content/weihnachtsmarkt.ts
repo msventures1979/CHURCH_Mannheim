@@ -38,6 +38,9 @@ export const xmas = {
     text: "Einzeln oder als Wochenende – sag uns, wann du dabei sein könntest. Den finalen Termin legen wir nach den Rückmeldungen fest.",
     options: ["Sa. 12.12.", "So. 13.12.", "Sa. 19.12.", "So. 20.12."],
   },
+  // Zusätzliche Empfänger:innen für Anmeldungen (neben info@)
+  notifyAlso: ["kiss.mi@web.de"],
+  contactPerson: { name: "Mirka Kissel-Storch", phone: "+49 178 4881428", phoneHref: "tel:+491784881428", email: "kiss.mi@web.de" },
   form: {
     eyebrow: "Interesse melden",
     headline: "Let's make this Christmas special!",

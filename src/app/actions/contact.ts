@@ -2,6 +2,7 @@
 
 import { z } from "zod";
 import { contact } from "@/content/home";
+import { xmas } from "@/content/weihnachtsmarkt";
 import { confirmationMail } from "@/content/mails";
 import { buildConfirmationMail } from "@/lib/confirmation-mail";
 import { escapeHtml, getResend } from "@/lib/mail";
@@ -130,7 +131,11 @@ export async function submitContact(_prev: ContactState, formData: FormData): Pr
 
     const { error } = await resend.emails.send({
       from,
-      to: to.split(",").map((s) => s.trim()),
+      // Weihnachtsmarkt-Anmeldungen gehen zusätzlich an die Organisatorin
+      to: [
+        ...to.split(",").map((s) => s.trim()),
+        ...(data.interest === "Weihnachtsmarkt-Aussteller" ? xmas.notifyAlso : []),
+      ],
       replyTo: data.email,
       subject: `Neue Anfrage: ${data.interest} – ${data.name}`,
       html,

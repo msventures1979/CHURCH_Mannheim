@@ -147,9 +147,15 @@ export default function ChristmasMarketPage() {
             <h2 className="font-xmas mt-4 text-balance text-center text-4xl italic md:text-6xl">{xmas.form.headline}</h2>
             <p className="mx-auto mb-12 mt-4 max-w-xl text-center text-[#f6efe0]/75">{xmas.form.text}</p>
             <ExhibitorForm />
-            <p className="mt-8 text-center text-sm text-[#f6efe0]/60">
-              Fragen? <a href={`mailto:${site.email}`} className="text-[#d9c38a] hover:underline">{site.email}</a>
-            </p>
+            <div className="mt-10 text-center">
+              <p className="text-xs uppercase tracking-[0.3em] text-[#d9c38a]">Deine Ansprechpartnerin</p>
+              <p className="font-xmas mt-3 text-2xl text-[#f6efe0]">{xmas.contactPerson.name}</p>
+              <p className="mt-2 text-sm text-[#f6efe0]/75">
+                <a href={xmas.contactPerson.phoneHref} className="text-[#d9c38a] hover:underline">{xmas.contactPerson.phone}</a>
+                <span className="mx-2 text-[#f6efe0]/40">·</span>
+                <a href={`mailto:${xmas.contactPerson.email}`} className="text-[#d9c38a] hover:underline">{xmas.contactPerson.email}</a>
+              </p>
+            </div>
           </div>
         </section>
       </main>
