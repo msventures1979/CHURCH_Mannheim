@@ -27,14 +27,15 @@ const layers = [
 const flakes: Flake[] = layers.flatMap((l, li) =>
   Array.from({ length: l.count }, (_, k) => {
     const i = li * 100 + k;
-    const lerp = ([a, b]: number[], t: number) => a + (b - a) * t;
+    // auf zwei Stellen gerundet, damit Server und Browser identische Werte erzeugen
+    const lerp = ([a, b]: number[], t: number) => Math.round((a + (b - a) * t) * 100) / 100;
     return {
       left: `${(r(i, 1) * 100).toFixed(2)}%`,
       size: lerp(l.size, r(i, 2)),
       fall: lerp(l.fall, r(i, 3)),
-      sway: 3 + r(i, 4) * 4,
+      sway: Math.round((3 + r(i, 4) * 4) * 100) / 100,
       swayX: lerp(l.sway, r(i, 5)) * (r(i, 6) > 0.5 ? 1 : -1),
-      delay: -r(i, 7) * lerp(l.fall, 1),
+      delay: -Math.round(r(i, 7) * lerp(l.fall, 1) * 100) / 100,
       opacity: lerp(l.opacity, r(i, 8)),
       blur: l.blur,
       crystal: li === 1 && r(i, 9) > 0.7,
@@ -68,7 +69,7 @@ export default function Snow() {
             style={
               {
                 animationDuration: `${f.sway}s`,
-                animationDelay: `${-f.sway * r(i, 10)}s`,
+                animationDelay: `${-Math.round(f.sway * r(i, 10) * 100) / 100}s`,
                 "--sway": `${f.swayX}px`,
                 filter: f.blur ? `blur(${f.blur}px)` : undefined,
               } as React.CSSProperties
