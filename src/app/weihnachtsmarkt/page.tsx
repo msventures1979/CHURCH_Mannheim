@@ -18,7 +18,8 @@ export const metadata: Metadata = {
   title: xmas.meta.title,
   description: xmas.meta.description,
   robots: { index: false, follow: false },
-  openGraph: { title: xmas.meta.title, description: xmas.meta.description, images: [{ url: hallImg.src }] },
+  openGraph: { title: xmas.meta.title, description: xmas.meta.description, url: "/weihnachtsmarkt" },
+  twitter: { card: "summary_large_image", title: xmas.meta.title, description: xmas.meta.description },
 };
 
 function Star({ className = "" }: { className?: string }) {
