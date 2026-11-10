@@ -39,7 +39,6 @@ export default function ExhibitorForm() {
           `Kategorie: ${fd.get("category") || "–"}`,
           `Website / Instagram: ${fd.get("web") || "–"}`,
           `Mögliche Termine: ${fd.getAll("dates").join(", ") || "–"}`,
-          `Bedarf am Stand: ${fd.getAll("needs").join(", ") || "–"}`,
         ];
         const about = String(fd.get("about") || "").trim();
         fd.set("message", `${lines.join("\n")}${about ? `\n\nAngebot:\n${about}` : ""}`);
@@ -94,18 +93,6 @@ export default function ExhibitorForm() {
             <label key={d} className={chipCls}>
               <input type="checkbox" name="dates" value={d} className="sr-only" />
               {d}
-            </label>
-          ))}
-        </div>
-      </fieldset>
-
-      <fieldset className="md:col-span-2">
-        <legend className={labelCls}>Was brauchst du am Stand?</legend>
-        <div className="mt-1 flex flex-wrap gap-3">
-          {form.needsOptions.map((n) => (
-            <label key={n} className={chipCls}>
-              <input type="checkbox" name="needs" value={n} className="sr-only" />
-              {n}
             </label>
           ))}
         </div>

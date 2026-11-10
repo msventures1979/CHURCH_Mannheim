@@ -46,7 +46,6 @@ export const xmas = {
     headline: "Let's make this Christmas special!",
     text: "Ein paar Eckdaten genügen. Wir melden uns mit allen Details zu Standgröße, Kosten und Ablauf.",
     categoryOptions: ["Fashion & Accessoires", "Design & Interior", "Kunst & Handmade", "DIY-Aktion", "Food", "Drinks", "Sonstiges"],
-    needsOptions: ["Strom", "Tisch", "Kühlung", "Wasser"],
     submit: "Interesse senden",
     successTitle: "Danke – wir freuen uns!",
     successText: "Deine Anmeldung ist angekommen. Wir melden uns in den nächsten Tagen mit allen Details.",
