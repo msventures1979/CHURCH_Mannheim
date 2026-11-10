@@ -98,7 +98,7 @@ export default function ChristmasMarketPage() {
                 <div key={f.label}>
                   <dt className="sr-only">{f.label}</dt>
                   <dd>
-                    <span className="font-xmas block text-3xl font-bold text-[#d9c38a] md:text-4xl">{f.value}</span>
+                    <span className="font-xmas block whitespace-nowrap text-2xl font-bold text-[#d9c38a] sm:text-3xl md:text-4xl">{f.value}</span>
                     <span className="mt-1 block text-[11px] uppercase tracking-widest text-[#f6efe0]/60">{f.label}</span>
                   </dd>
                 </div>
@@ -134,7 +134,7 @@ export default function ChristmasMarketPage() {
             <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
               {xmas.dates.options.map((d) => (
                 <div key={d} className="rounded-2xl border border-[#d9c38a]/40 bg-[#14291d]/80 px-4 py-6">
-                  <span className="font-xmas text-2xl font-bold text-[#d9c38a] md:text-3xl">{d}</span>
+                  <span className="font-xmas whitespace-nowrap text-xl font-bold text-[#d9c38a] sm:text-2xl md:text-3xl">{d}</span>
                 </div>
               ))}
             </div>
