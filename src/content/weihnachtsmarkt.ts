@@ -14,10 +14,10 @@ export const xmas = {
   },
   intro: [
     "Im Dezember verwandelt sich die CHURCH. im Turley-Quartier in einen ganz besonderen Weihnachtsmarkt. Wir möchten einen Ort schaffen, der mehr ist als ein klassischer Weihnachtsmarkt: ein kreatives Come-together in außergewöhnlicher Atmosphäre, das Menschen, Ideen und lokale Brands zusammenbringt.",
-    "Auf rund 25 ausgewählten Ständen präsentieren sich spannende Labels, kleine Manufakturen, kreative Köpfe und besondere Brands – mit Fokus auf die lokale Szene aus Mannheim und der Region. Dazu gibt es leckere Drinks, gutes Essen, ausgewählte Musik und jede Menge Raum zum Entdecken, Genießen und Zusammenkommen.",
+    "Auf maximal 15 ausgewählten Ständen präsentieren sich spannende Labels, kleine Manufakturen, kreative Köpfe und besondere Brands – mit Fokus auf die lokale Szene aus Mannheim und der Region. Dazu gibt es leckere Drinks, gutes Essen, ausgewählte Musik und jede Menge Raum zum Entdecken, Genießen und Zusammenkommen.",
   ],
   facts: [
-    { value: "ca. 25", label: "ausgewählte Stände" },
+    { value: "max. 15", label: "ausgewählte Stände" },
     { value: "1893", label: "Kapelle als Kulisse" },
     { value: "Local", label: "Mannheim & Region" },
   ],
