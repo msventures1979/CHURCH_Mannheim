@@ -30,6 +30,8 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Bild-Uploads im Formular „Event einreichen“ (im Browser vorab verkleinert)
+  experimental: { serverActions: { bodySizeLimit: "4mb" } },
   images: { formats: ["image/avif", "image/webp"] },
   async headers() {
     return [
