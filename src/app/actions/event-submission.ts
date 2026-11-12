@@ -7,6 +7,7 @@ import { isValidEventKey } from "@/lib/event-access";
 import { escapeHtml, getResend } from "@/lib/mail";
 import { getRequestMeta } from "@/lib/request-meta";
 import { getSupabase } from "@/lib/supabase";
+import { site } from "@/content/site";
 
 export type EventSubmissionState = {
   status: "idle" | "success" | "error";
@@ -215,9 +216,15 @@ export async function submitEvent(_prev: EventSubmissionState, fd: FormData): Pr
 <p>Hallo ${first},</p>
 <p>danke für deine Angaben zu <strong>${escapeHtml(d.title)}</strong>. Wir bauen daraus deine Eventseite auf church-mannheim.com und melden uns, sobald sie online ist.</p>
 <p>Falls sich noch etwas ändert, antworte einfach auf diese Mail.</p>
+<p>Wir betreiben die CHURCH. mit ganz viel Herzblut – und freuen uns riesig über deine Unterstützung:</p>
+<ul style="padding-left:20px;margin:0 0 16px">
+<li style="margin-bottom:6px">Folge uns auf Instagram und lass ein Like da: <a href="${site.instagram}" style="color:#111">@church.mannheim</a></li>
+<li>Erwähne die CHURCH. gern auch auf deiner Website und in deinen Posts zum Event – markiere uns einfach mit @church.mannheim.</li>
+</ul>
+<p>Danke dir – wir freuen uns auf dein Event!</p>
 <p>Viele Grüße<br>Dein CHURCH. Team</p>
 </body></html>`,
-      text: `Hallo ${d.contactName.split(" ")[0]},\n\ndanke für deine Angaben zu „${d.title}“. Wir bauen daraus deine Eventseite auf church-mannheim.com und melden uns, sobald sie online ist.\n\nFalls sich noch etwas ändert, antworte einfach auf diese Mail.\n\nViele Grüße\nDein CHURCH. Team`,
+      text: `Hallo ${d.contactName.split(" ")[0]},\n\ndanke für deine Angaben zu „${d.title}“. Wir bauen daraus deine Eventseite auf church-mannheim.com und melden uns, sobald sie online ist.\n\nFalls sich noch etwas ändert, antworte einfach auf diese Mail.\n\nWir betreiben die CHURCH. mit ganz viel Herzblut – und freuen uns riesig über deine Unterstützung:\n- Folge uns auf Instagram und lass ein Like da: ${site.instagram}\n- Erwähne die CHURCH. gern auch auf deiner Website und in deinen Posts zum Event – markiere uns einfach mit @church.mannheim.\n\nDanke dir – wir freuen uns auf dein Event!\n\nViele Grüße\nDein CHURCH. Team`,
     });
     if (cErr) console.error("[event-submission] confirmation failed", cErr.message);
   }
