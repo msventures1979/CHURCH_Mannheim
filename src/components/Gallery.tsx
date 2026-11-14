@@ -1,7 +1,7 @@
 "use client";
 
 import Image, { type StaticImageData } from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import imgExterior from "@/assets/church-exterior.jpg";
 import imgExteriorSide from "@/assets/church-exterior-side.jpg";
 import imgGlass from "@/assets/church-stained-glass.jpg";
@@ -12,9 +12,13 @@ import imgKitchen from "@/assets/church-kitchen.jpg";
 import imgLightBench from "@/assets/church-light-bench.jpg";
 import imgWindowView from "@/assets/church-window-view.jpg";
 import { gallery } from "@/content/home";
+import { homeActionPhotos } from "@/content/photos";
+import Lightbox from "./Lightbox";
 import FadeIn from "./FadeIn";
 
 const images: { src: StaticImageData; alt: string; portrait?: boolean }[] = [
+  // CHURCH. in Action (Fotos: Sebastian Weindel)
+  ...homeActionPhotos,
   { src: imgExterior, alt: "Außenansicht der Kapelle CHURCH. in Mannheim – Backsteinfassade" },
   { src: imgGlassCloseup, alt: "Buntglasfenster – Detail" },
   { src: imgGlass, alt: "Kirchenraum mit Buntglasfenster", portrait: true },
@@ -28,25 +32,6 @@ const images: { src: StaticImageData; alt: string; portrait?: boolean }[] = [
 
 export default function Gallery() {
   const [open, setOpen] = useState<number | null>(null);
-  const step = useCallback(
-    (d: number) => setOpen((i) => (i === null ? i : (i + d + images.length) % images.length)),
-    [],
-  );
-
-  useEffect(() => {
-    if (open === null) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(null);
-      if (e.key === "ArrowRight") step(1);
-      if (e.key === "ArrowLeft") step(-1);
-    };
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [open, step]);
 
   return (
     <>
@@ -62,7 +47,7 @@ export default function Gallery() {
               <button
                 key={img.alt}
                 onClick={() => setOpen(i)}
-                aria-label={`${img.alt} vergrößern`}
+                aria-label={`Bild vergrößern: ${img.alt}`}
                 className={`group shrink-0 overflow-hidden ${img.portrait ? "w-64 md:w-80" : "w-80 md:w-[28rem]"}`}
               >
                 <div className={`relative overflow-hidden ${img.portrait ? "aspect-[3/4]" : "aspect-[16/10]"}`}>
@@ -78,47 +63,13 @@ export default function Gallery() {
               </button>
             ))}
           </div>
+          <p className="px-6 text-xs text-muted-foreground md:px-12 lg:px-24">
+            Event-Fotos: <a href="https://www.sebastian-weindel.de/" target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-foreground">Sebastian Weindel</a> ·{" "}
+            <a href="/eventlocation-mieten#einblicke" className="underline underline-offset-2 hover:text-foreground">So sieht ein Event bei uns aus</a>
+          </p>
         </FadeIn>
       </section>
-
-      {open !== null && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label="Galerie"
-          className="fixed inset-0 z-[10000] flex items-center justify-center bg-background/95 p-4 md:p-6"
-          onClick={() => setOpen(null)}
-        >
-          <button aria-label="Galerie schließen" className="absolute right-4 top-4 p-2 text-2xl font-light text-foreground md:right-6 md:top-6" onClick={() => setOpen(null)}>
-            ✕
-          </button>
-          <div className="flex max-h-[85vh] w-full max-w-5xl items-center gap-2 md:gap-4">
-            <button
-              aria-label="Vorheriges Bild"
-              className="shrink-0 p-2 text-3xl text-foreground transition-colors hover:text-primary"
-              onClick={(e) => {
-                e.stopPropagation();
-                step(-1);
-              }}
-            >
-              ‹
-            </button>
-            <div className="relative h-[80vh] flex-1" onClick={(e) => e.stopPropagation()}>
-              <Image src={images[open].src} alt={images[open].alt} fill sizes="90vw" className="object-contain" />
-            </div>
-            <button
-              aria-label="Nächstes Bild"
-              className="shrink-0 p-2 text-3xl text-foreground transition-colors hover:text-primary"
-              onClick={(e) => {
-                e.stopPropagation();
-                step(1);
-              }}
-            >
-              ›
-            </button>
-          </div>
-        </div>
-      )}
+      <Lightbox images={images} index={open} onChange={setOpen} />
     </>
   );
 }

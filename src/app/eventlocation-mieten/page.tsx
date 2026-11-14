@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import glassImg from "@/assets/church-stained-glass.jpg";
 import hallImg from "@/assets/church-hall-entrance.jpg";
-import kitchenImg from "@/assets/church-kitchen.jpg";
-import benchImg from "@/assets/church-light-bench.jpg";
-import exteriorImg from "@/assets/church-exterior.jpg";
 import EventInquiry from "@/components/EventInquiry";
+import ActionGallery from "@/components/ActionGallery";
 import FadeIn from "@/components/FadeIn";
 import FeatureList from "@/components/FeatureList";
 import FloorPlan from "@/components/FloorPlan";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { actionPhotos, photoCredit } from "@/content/photos";
 import { rental } from "@/content/rental";
 import { absoluteUrl, site } from "@/content/site";
 import { breadcrumbJsonLd, JsonLd } from "@/lib/seo";
@@ -21,8 +19,8 @@ export const metadata: Metadata = {
   title: rental.meta.title,
   description: rental.meta.description,
   alternates: { canonical: path },
-  openGraph: { title: rental.meta.title, description: rental.meta.description, url: path, images: [{ url: hallImg.src }] },
-  twitter: { title: rental.meta.title, description: rental.meta.description, images: [hallImg.src] },
+  openGraph: { title: rental.meta.title, description: rental.meta.description, url: path, images: [{ url: actionPhotos[0].src.src, alt: actionPhotos[0].alt }] },
+  twitter: { title: rental.meta.title, description: rental.meta.description, images: [actionPhotos[0].src.src] },
 };
 
 const eyebrowCls = "mb-6 text-sm uppercase tracking-widest text-primary";
@@ -31,6 +29,23 @@ const h2Cls = "text-balance font-display text-4xl font-bold tracking-tight text-
 export default function RentalPage() {
   return (
     <div className="flex min-h-screen flex-col">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ImageGallery",
+          name: "CHURCH. in Action – Eventlocation Mannheim",
+          description: "Pop-up-Event in der Eventlocation CHURCH. Mannheim",
+          url: absoluteUrl(`${path}#einblicke`),
+          image: actionPhotos.map((p) => ({
+            "@type": "ImageObject",
+            contentUrl: absoluteUrl(p.src.src),
+            description: p.alt,
+            creator: { "@type": "Person", name: photoCredit.name, url: photoCredit.url },
+            creditText: `Foto: ${photoCredit.name}`,
+            copyrightNotice: `© ${photoCredit.name}`,
+          })),
+        }}
+      />
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -151,19 +166,21 @@ export default function RentalPage() {
           </FadeIn>
         </section>
 
-        {/* Bilder */}
-        <section className="border-t border-border" aria-label="Eindrücke">
-          <div className="grid grid-cols-2 md:grid-cols-4">
-            {[
-              { src: glassImg, alt: "Buntglasfenster im Kirchenraum" },
-              { src: kitchenImg, alt: "Designküche im Saal" },
-              { src: benchImg, alt: "Lichtspiel auf der Kirchenbank" },
-              { src: exteriorImg, alt: "Außenansicht der Kapelle" },
-            ].map((img) => (
-              <div key={img.alt} className="relative aspect-square overflow-hidden">
-                <Image src={img.src} alt={`${img.alt} – Eventlocation CHURCH. Mannheim`} fill placeholder="blur" sizes="(min-width: 768px) 25vw, 50vw" className="object-cover" />
-              </div>
-            ))}
+        {/* CHURCH. in Action */}
+        <section id="einblicke" className="section-padding scroll-mt-20 border-t border-border" aria-labelledby="einblicke-h">
+          <div className="mx-auto max-w-7xl">
+            <FadeIn>
+              <p className={eyebrowCls}>CHURCH. in Action</p>
+              <h2 id="einblicke-h" className={h2Cls}>So sieht ein Event bei uns aus.</h2>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                Drei Wochen Pop-up-Store im Kirchenraum: Mode, Düfte, Kunst und eine Bar – so hat DIPOL die CHURCH. für
+                „Copenhagen Catch Up“ eingerichtet. Ob Pop-up, Präsentation, Dinner oder Party: Der Raum lässt sich frei
+                gestalten.
+              </p>
+            </FadeIn>
+          </div>
+          <div className="mx-auto mt-12 max-w-7xl md:px-0">
+            <ActionGallery photos={actionPhotos} />
           </div>
         </section>
 
