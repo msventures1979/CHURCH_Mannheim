@@ -275,7 +275,7 @@ export default async function EventDetailPage({ params }: Props) {
                     <p className="font-display font-bold text-foreground">{partner.name}</p>
                     <p className="text-sm leading-snug text-primary">{partner.role}</p>
                     {partner.website && (
-                      <a href={partner.website} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-xs uppercase tracking-widest text-primary hover:text-foreground">
+                      <a href={partner.website} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block break-all text-xs uppercase tracking-widest text-primary hover:text-foreground">
                         {partner.website.replace(/^https?:\/\//, "")} ↗
                       </a>
                     )}

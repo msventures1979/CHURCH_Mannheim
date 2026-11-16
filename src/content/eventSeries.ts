@@ -8,6 +8,8 @@ import feminineFlowHero from "@/assets/feminine-flow-hero.jpg";
 import feminineFlowCard from "@/assets/feminine-flow-card.jpg";
 import pilatesMenemenHero from "@/assets/pilates-menemen-hero.jpg";
 import pilatesMenemenCard from "@/assets/pilates-menemen-card.jpg";
+import adventskranzHero from "@/assets/adventskranz-workshop-hero.jpg";
+import adventskranzCard from "@/assets/adventskranz-workshop-card.jpg";
 
 export interface TimelineStep {
   title: string;
@@ -141,6 +143,35 @@ export const eventSeries: EventSeries[] = [
     partnerId: "dipol",
     heroImage: dipolHero,
     cardImage: dipolCard,
+  },
+  {
+    seriesId: "adventskranz-workshop-mamas",
+    title: "Adventskranz-Workshop für Mamas",
+    subtitle: "mit Floristin Pauline Johe · MOM CIRCLE",
+    categories: ["Workshop", "Advent", "Mamas"],
+    shortDescription:
+      "Adventskranz binden mit Floristin, regionalem Grün und kleinen weihnachtlichen Leckereien – eine Auszeit für Mamas, Babys sind willkommen.",
+    longDescription: [
+      "Es wird weihnachtlich: Am Mittwoch, 25. November, verwandelt sich die CHURCH. in eine gemütliche Adventswerkstatt. Mit Floristin Pauline Johe bindest du deinen ganz eigenen Adventskranz – aus frischem Grün und naturbelassenen Materialien aus der Region, dekoriert ganz nach deinem Geschmack.",
+      "Vorkenntnisse brauchst du keine: Du wirst Schritt für Schritt angeleitet und bekommst bei jeder Frage Unterstützung.",
+      "Der Workshop ist eine kleine Auszeit nur für dich – Zeit zum Durchatmen, Kreativsein und Plaudern mit anderen Mamas, ganz ohne Alltagsstress. Willkommen sind Mamas jeden Alters, eure Babys dürfen sehr gern dabei sein.",
+    ],
+    timeline: [
+      { title: "Ankommen", description: "Getränke und kleine weihnachtliche Leckereien" },
+      { title: "Kranz binden", description: "Schritt für Schritt mit Floristin Pauline Johe – mit frischem, regionalem Grün" },
+      { title: "Dekorieren", description: "Kerzen und liebevoll ausgewählte Deko ganz nach deinem Geschmack" },
+      { title: "Mitnehmen", description: "Deinen fertigen Adventskranz nimmst du direkt mit nach Hause" },
+    ],
+    infos: [
+      { label: "Für wen", value: "Für Mamas jeden Alters, Babys sind willkommen" },
+      { label: "Inklusive", value: "Material, Kerzen, Getränke und Snacks" },
+      { label: "Mitbringen", value: "Tasche oder Karton für den Transport" },
+      { label: "Plätze", value: "12 pro Workshop" },
+      { label: "Tickets", value: "Über rausgegangen.de oder per Mail an momcirclemannheim@gmail.com" },
+    ],
+    partnerId: "mom-circle",
+    heroImage: adventskranzHero,
+    cardImage: adventskranzCard,
   },
 ];
 
